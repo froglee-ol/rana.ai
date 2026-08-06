@@ -25,7 +25,11 @@
     --sky:#0284c7;--sky-lt:rgba(2,132,199,.08);--sky-bg:rgba(2,132,199,.04);
     --dark:#1a1a2e;
     --font:'Noto Sans TC',-apple-system,sans-serif;
-    --mono:'JetBrains Mono',monospace;
+    /* ⚠ JetBrains Mono 沒有中文字。堆疊裡若不補中文字體，所有走 --mono 的中文
+       會掉到系統預設等寬字（Windows 上就是新細明體那類襯線字），跟主標的黑體並排
+       會明顯質感不一致。字體 fallback 是逐字生效的：英數仍由 JetBrains Mono 畫，
+       中文接到 Noto Sans TC，跟標題同一套。 */
+    --mono:'JetBrains Mono','Noto Sans TC',ui-monospace,monospace;
   }
 
   html,body{width:100%;height:100%;font-family:var(--font);background:var(--bg);color:var(--text);overflow:hidden;-webkit-font-smoothing:antialiased;font-size:18px;line-height:1.6}
@@ -94,7 +98,7 @@
   .tree-branch::before{content:'';position:absolute;top:0;left:50%;width:2px;height:28px;background:rgba(0,0,0,.08)}
   .branch-head{padding:.7rem 1rem;border-radius:12px;border:1px solid var(--border);margin-bottom:.6rem;font-weight:700;font-size:.95rem;background:var(--card);box-shadow:0 1px 3px rgba(0,0,0,.04)}
   .branch-leaves{display:flex;flex-direction:column;gap:.3rem}
-  .leaf{padding:.35rem .8rem;border-radius:8px;background:rgba(0,0,0,.03);font-size:.75rem;color:var(--text3);font-family:var(--mono);letter-spacing:.01em}
+  .leaf{padding:.35rem .8rem;border-radius:8px;background:rgba(0,0,0,.03);font-size:.75rem;color:var(--text3);font-family:var(--font);letter-spacing:.01em}
   .branch-benefit{margin-top:.5rem;font-size:.78rem;color:var(--text3);line-height:1.5;font-style:italic;padding:0 .5rem}
 
   /* ── Pipeline ── */
@@ -294,7 +298,7 @@
   .kg-core span{font-size:.72rem;opacity:.72;font-family:var(--mono);margin-top:.25rem;letter-spacing:.06em}
   /* 主節點不浮動 —— 連線是固定座標的 SVG，主節點一飄就會跟線脫開 */
   .kg-main{padding:.7rem 1.25rem;border-radius:13px;background:var(--card);border:2px solid;font-weight:800;font-size:1.15rem;box-shadow:0 3px 16px rgba(0,0,0,.10)}
-  .kg-leaf{padding:.32rem .78rem;border-radius:9px;background:var(--card);border:1px solid var(--border);font-size:.85rem;color:var(--text2);font-family:var(--mono);box-shadow:0 1px 5px rgba(0,0,0,.05);animation:kgFloat 6.4s ease-in-out infinite}
+  .kg-leaf{padding:.32rem .78rem;border-radius:9px;background:var(--card);border:1px solid var(--border);font-size:.85rem;color:var(--text2);font-family:var(--font);box-shadow:0 1px 5px rgba(0,0,0,.05);animation:kgFloat 6.4s ease-in-out infinite}
   @keyframes kgPulse{0%,100%{box-shadow:0 0 0 12px rgba(124,58,237,.09),0 0 46px rgba(124,58,237,.30)}50%{box-shadow:0 0 0 24px rgba(124,58,237,.045),0 0 72px rgba(124,58,237,.46)}}
   @keyframes kgFloat{0%,100%{transform:translate(-50%,-50%)}50%{transform:translate(-50%,calc(-50% - 7px))}}
 
@@ -402,7 +406,7 @@
   .modal-box{background:var(--card);border-radius:20px;max-width:1220px;width:100%;max-height:88vh;overflow-y:auto;padding:2.4rem 2.8rem;box-shadow:0 24px 80px rgba(0,0,0,.4)}
   .modal-box h3{font-size:2rem;margin-bottom:.3rem}
   .modal-box .modal-sub{font-size:1.1rem;color:var(--text3);margin-bottom:1.8rem}
-  .modal-close{position:absolute;top:2rem;right:2.4rem;font-size:.9rem;font-family:var(--mono);color:rgba(255,255,255,.6);cursor:pointer}
+  .modal-close{position:absolute;top:2rem;right:2.4rem;font-size:.9rem;font-family:var(--font);color:rgba(255,255,255,.6);cursor:pointer}
 
   /* 指標條 */
   /* 標籤固定成兩行（上英文、下中文）＋ 欄寬固定 ⇒ 每列高度一致，指標條才會等距對齊。
@@ -482,13 +486,13 @@
      ⚠ 沒有底色會壓在連線上 ⇒ 用背景色描邊做出挖空效果，字才讀得清楚 */
   .rm-combo{padding:.15rem .3rem;font-size:1.2rem;font-weight:800;text-align:center;line-height:1.3;
     text-shadow:0 0 7px var(--bg),0 0 7px var(--bg),0 0 5px var(--bg)}
-  .rm-combo em{display:block;font-style:normal;font-family:var(--mono);font-size:.84rem;font-weight:600;opacity:.62;margin-bottom:.05rem}
+  .rm-combo em{display:block;font-style:normal;font-family:var(--font);font-size:.84rem;font-weight:600;opacity:.62;margin-bottom:.05rem}
   /* 第三層＝剛需（空心＋虛線）＋ 底下掛幾個小價值字，顏色跟著所屬分區走 */
   .rm-need{padding:.52rem 1.1rem;border-radius:13px;font-size:1.18rem;font-weight:800;
     background:var(--bg);border:2px dashed;text-align:center;line-height:1.3}
   /* 最外圈：從虛線框再往外放射的小價值字（做法同 P31 的葉節點） */
   /* 不畫框，只有字；靠背景色描邊挖空，壓在連線上也讀得到 */
-  .rm-val{padding:.1rem .3rem;font-family:var(--mono);font-size:.92rem;font-weight:700;
+  .rm-val{padding:.1rem .3rem;font-family:var(--font);font-size:.92rem;font-weight:700;
     text-shadow:0 0 6px var(--bg),0 0 6px var(--bg),0 0 4px var(--bg)}
 
   /* 三層各自是一個 fragment 容器；inset:0 讓裡面的絕對定位節點仍以 .rm 為基準
@@ -505,7 +509,7 @@
   .sg-root{padding:1rem 1.9rem;border-radius:16px;font-size:1.45rem;font-weight:900;color:var(--white);background:linear-gradient(135deg,var(--dark),#3b3b5c);box-shadow:0 6px 26px rgba(0,0,0,.28)}
   .sg-grp{padding:.6rem 1.1rem;border-radius:11px;font-size:1.1rem;font-weight:800;background:var(--card);border:2px solid;box-shadow:0 3px 14px rgba(0,0,0,.1)}
   .sg-grp em{font-style:normal;font-family:var(--mono);font-size:.85rem;opacity:.7;margin-left:.4rem}
-  .sg-leaf{padding:.22rem .6rem;border-radius:7px;font-size:.78rem;font-family:var(--mono);background:var(--card);border:1px solid;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+  .sg-leaf{padding:.22rem .55rem;border-radius:7px;font-size:.72rem;font-family:var(--mono);background:var(--card);border:1px solid;box-shadow:0 1px 4px rgba(0,0,0,.05)}
 
   .wip-badge{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.1em;padding:.25rem .9rem;border-radius:100px;background:var(--amber-lt);color:var(--amber);margin-left:.7rem;vertical-align:middle}
 
@@ -1875,7 +1879,7 @@
   (()=>{
     const host=document.getElementById('skillGraph'); if(!host)return;
     const W=1460,H=700,CX=W/2,CY=H/2;
-    const R1X=352,R1Y=176, R2X=[540,632], R2Y=[268,320];
+    const R1X=352,R1Y=176, R2X=[520,600], R2Y=[262,312];
     const total=SKILL_GROUPS.reduce((s,g)=>s+g.items.length,0);
     const NS='http://www.w3.org/2000/svg';
     const svg=document.createElementNS(NS,'svg');
@@ -1887,7 +1891,8 @@
       svg.appendChild(l)};
     const node=(cls,x,y,html,style)=>{const d=document.createElement('div');
       d.className='sg-n '+cls; d.style.left=(x/W*100)+'%'; d.style.top=(y/H*100)+'%';
-      d.style.cssText+=style||''; d.innerHTML=html; host.appendChild(d)};
+      d.style.cssText+=style||''; d.innerHTML=html; host.appendChild(d); return d};
+    const leaves=[];
 
     let acc=-90;
     SKILL_GROUPS.forEach(g=>{
@@ -1899,14 +1904,48 @@
       g.items.forEach((it,i)=>{
         const a=(acc+sp*(i+0.5)/k)*Math.PI/180, r=i%2;
         const lx=CX+R2X[r]*Math.cos(a), ly=CY+R2Y[r]*Math.sin(a);
-        line(gx,gy,lx,ly,col,1.5,.28);
-        node('sg-leaf',lx,ly,it,`border-color:${col}55;color:var(--text2)`);
+        const ln=line(gx,gy,lx,ly,col,1.5,.28);
+        const el=node('sg-leaf',lx,ly,it,`border-color:${col}55;color:var(--text2)`);
+        leaves.push({el,ln,a,rx:R2X[r],ry:R2Y[r],gx,gy});
       });
       node('sg-grp',gx,gy,`${g.n}<em>${k===5&&g.n==='AI 指令'?'37':k}</em>`,`border-color:${col};color:${col}`);
       acc+=sp;
     });
     node('sg-root',CX,CY,'Rana.AI 規則庫','');
     host.appendChild(svg);
+
+    /* 解重疊：長度不一的 slug 用固定半徑一定會有幾組撞在一起，
+       與其反覆猜半徑，不如量出實際框、把撞到的那顆沿自己的射線往外推到不撞為止。
+       這樣之後改標籤文字也不會再壞。 */
+    const relax=()=>{
+      const box=host.getBoundingClientRect(); if(!box.width)return;
+      const place=L=>{
+        L.el.style.left=((CX+L.rx*Math.cos(L.a))/W*100)+'%';
+        L.el.style.top =((CY+L.ry*Math.sin(L.a))/H*100)+'%';
+        L.ln.setAttribute('x2',CX+L.rx*Math.cos(L.a));
+        L.ln.setAttribute('y2',CY+L.ry*Math.sin(L.a));
+      };
+      const hit=(p,q)=>p.left<q.right-2&&q.left<p.right-2&&p.top<q.bottom-2&&q.top<p.bottom-2;
+      const inside=L=>{const r=L.el.getBoundingClientRect();
+        return r.left>=box.left-1&&r.right<=box.right+1&&r.top>=box.top-1&&r.bottom<=box.bottom+1;};
+      for(let pass=0;pass<14;pass++){
+        let moved=false;
+        for(let i=0;i<leaves.length;i++)for(let j=i+1;j<leaves.length;j++){
+          if(!hit(leaves[i].el.getBoundingClientRect(),leaves[j].el.getBoundingClientRect()))continue;
+          // 推半徑較大的那顆再往外；推完若出框就退回，改推另一顆
+          const [out,inn]=leaves[i].rx>=leaves[j].rx?[leaves[i],leaves[j]]:[leaves[j],leaves[i]];
+          const bx=out.rx,by=out.ry;
+          out.rx+=16;out.ry+=10;place(out);
+          if(!inside(out)){out.rx=bx;out.ry=by;place(out);
+            const b2=[inn.rx,inn.ry];inn.rx-=16;inn.ry-=10;place(inn);
+            if(!inside(inn)){inn.rx=b2[0];inn.ry=b2[1];place(inn);continue;}}
+          moved=true;
+        }
+        if(!moved)break;
+      }
+    };
+    requestAnimationFrame(relax);
+    if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>requestAnimationFrame(relax));
   })();
 
   /* 括號寬度必須量到「字體載入完成後」的實際步驟寬度。
