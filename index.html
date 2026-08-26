@@ -11,8 +11,11 @@
 
   :root{
     --white:#fff;
-    --bg:#fafbfc;
-    --card:#fff;
+    /* 米黃底：純白在投影機／大螢幕上長時間看會刺眼，降一點亮度並往暖色偏。
+       ⚠ 只改這兩顆變數就好 —— 全 deck 的卡片、節點、挖空描邊都吃 --bg / --card，
+       改別的地方會出現「有幾塊還是純白」的補丁感。 */
+    --bg:#faf7ef;
+    --card:#fffdf8;
     --border:rgba(0,0,0,.08);
     --text:#1a1a2e;
     --text2:#444;
@@ -41,7 +44,7 @@
   .slide.prev{opacity:0;transform:translateX(-30px)}
 
   .slide.accent{background:var(--dark);color:var(--white)}
-  .slide.demo{background:#f0eeeb;color:var(--text);text-align:center}
+  .slide.demo{background:#f2ede1;color:var(--text);text-align:center}
 
   /* Typography */
   h1{font-size:3.2rem;font-weight:900;line-height:1.25;letter-spacing:-.02em;color:var(--text)}
@@ -109,25 +112,12 @@
   .pipe-step p{font-size:.8rem;color:var(--text3);line-height:1.4}
   .pipe-arrow{flex-shrink:0;width:32px;text-align:center;color:var(--text4);font-size:1.2rem}
 
-  /* ── AI Capabilities ── */
-  .cap-row{display:flex;gap:1.2rem;max-width:960px;width:100%;margin-top:1.5rem;justify-content:center;flex-wrap:wrap}
-  .cap-pill{flex:1;min-width:150px;max-width:200px;padding:1.2rem 1rem;border-radius:14px;text-align:center;border:1px solid var(--border);background:var(--card);box-shadow:0 1px 3px rgba(0,0,0,.04)}
-  .cap-pill .cap-emoji{font-size:1.6rem;margin-bottom:.5rem}
-  .cap-pill h4{font-size:.95rem;font-weight:700;margin-bottom:.2rem}
-  .cap-pill p{font-size:.75rem;color:var(--text3);line-height:1.4}
-
   /* ── Redo Stats ── */
   .redo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:800px;width:100%;margin-top:2rem}
   .redo-item{text-align:center}
   .redo-num{font-size:3.2rem;font-weight:900;line-height:1;margin-bottom:.4rem}
   .redo-label{font-size:.9rem;color:var(--text2);font-weight:600}
   .redo-sub{font-size:.75rem;color:var(--text3);margin-top:.2rem;line-height:1.5}
-
-  /* ── Stat Row ── */
-  .stat-row{display:flex;gap:2.5rem;margin-top:2rem;max-width:900px;width:100%;justify-content:center}
-  .stat-item{text-align:center;flex:1}
-  .stat-num{font-size:3rem;font-weight:900;line-height:1;margin-bottom:.4rem}
-  .stat-label{font-size:.9rem;font-weight:500;color:var(--text3)}
 
   /* Section (dark accent) */
   .section-quote{font-size:2.8rem;font-weight:900;line-height:1.35;max-width:700px}
@@ -192,7 +182,7 @@
 
   /* ══════════════ Part 2 ══════════════ */
 
-  /* ── 放大級距：沒有介面圖的內容頁專用（約 150–190%）。P1–P7、P12–P16 也套 ── */
+  /* ── 放大級距：沒有介面圖的內容頁專用（約 150–190%） ── */
   .slide.xl h1{font-size:4.6rem}
   .slide.xl h2{font-size:3.6rem;margin-bottom:.9rem}
   .slide.xl h3{font-size:1.9rem}
@@ -208,11 +198,11 @@
   /* 封面 */
   .slide.xl .cover-badge{font-size:1.05rem;padding:.5rem 1.6rem}
   .slide.xl .cover-meta{font-size:1.15rem;gap:2.6rem}
-  /* 痛點三欄（P2） */
+  /* 痛點三欄（P4） */
   .slide.xl .pain-num{font-size:5rem}
   .slide.xl .pain-label{font-size:1.6rem}
   .slide.xl .pain-desc{font-size:1.25rem}
-  /* 橫向時間軸（P5）—— 痛點／解法改成有底色的卡片＋圓形圖示，
+  /* 橫向時間軸（P7）—— 痛點／解法改成有底色的卡片＋圓形圖示，
      原本是裸的 ✕ ✓ 直接接在文字前面，四欄排在一起會糊成一片 */
   .slide.xl .h-timeline{gap:.8rem;max-width:1180px}
   .slide.xl .h-timeline::before{top:38px}
@@ -229,38 +219,31 @@
     font-size:.75rem;font-weight:900;color:var(--white)}
   .slide.xl .ht-pain::before{content:'✕';background:var(--rose)}
   .slide.xl .ht-solve::before{content:'✓';background:var(--emerald)}
-  /* 開發流程（P6）—— 加寬到 step 5「AI 提供方案」不會被折行 */
+  /* 開發流程（P8）—— 加寬到 step 5「AI 提供方案」不會被折行 */
   .slide.xl .approach-flow{gap:.7rem;max-width:1240px}
   .slide.xl .af-step{min-width:238px;padding:1.4rem 1.5rem}
   .slide.xl .af-num{font-size:1.05rem;margin-bottom:.5rem}
   .slide.xl .af-step p{font-size:1.4rem;white-space:nowrap}
   .slide.xl .af-step p span.dim{font-size:1.1rem!important}
   .slide.xl .af-arrow{font-size:1.9rem}
-  /* 架構樹（P7 / P20） */
+  /* 架構樹（P9 / P22） */
   .slide.xl .tree-root{font-size:1.8rem;padding:1.1rem 2.8rem}
   .slide.xl .branch-head{font-size:1.4rem;padding:.95rem 1.1rem}
   .slide.xl .leaf{font-size:1.05rem;padding:.5rem 1rem}
   .slide.xl .branch-benefit{font-size:1.1rem}
-  /* 生產線（P12 / P28） */
+  /* 生產線（P15） */
   .slide.xl .pipeline{max-width:1280px}
   .slide.xl .pipe-step{padding:2.1rem 1.1rem;border-radius:16px}
   .slide.xl .pipe-step h4{font-size:1.65rem;margin-bottom:.55rem}
   .slide.xl .pipe-step p{font-size:1.2rem;line-height:1.55}
   .slide.xl .step-num{width:56px;height:56px;font-size:1.35rem;margin-bottom:.9rem}
   .slide.xl .pipe-arrow{font-size:2rem;width:44px}
-  /* 能力藥丸（P13） */
-  .slide.xl .cap-pill{min-width:190px;max-width:250px;padding:1.5rem 1.1rem}
-  .slide.xl .cap-emoji{font-size:2.4rem}
-  .slide.xl .cap-pill h4{font-size:1.35rem}
-  .slide.xl .cap-pill p{font-size:1.05rem}
-  /* 迭代 / 統計（P14 / P15） */
+  /* 迭代（P17） */
   .slide.xl .redo-num{font-size:4.4rem}
   .slide.xl .redo-label{font-size:1.25rem}
   .slide.xl .redo-sub{font-size:1.05rem}
-  .slide.xl .stat-num{font-size:4.2rem}
-  .slide.xl .stat-label{font-size:1.25rem}
 
-  /* ── Now（P18） ── */
+  /* ── Now（P20） ── */
   .now-title{font-size:6rem;font-weight:900;letter-spacing:-.04em;line-height:1;background:linear-gradient(135deg,var(--emerald),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
   /* 欄數必須等於實際項目數，否則最後一欄空著、整排看起來偏左 */
   .vs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6rem;max-width:1020px;width:100%;margin-top:3rem;justify-items:center}
@@ -271,14 +254,16 @@
   /* 底線帶顏色，數字本身統一深色 —— 四個彩色大字並排會互相打架 */
   .vs-item i{display:block;width:44px;height:4px;border-radius:2px;margin:0 auto .55rem}
 
-  /* ── 四大支柱（P19） ── */
+  /* ── 四大支柱（P21） ── */
   .pillar-row{display:flex;gap:1.1rem;max-width:1160px;width:100%;margin-top:3rem}
   .pillar{flex:1;padding:2rem 1.1rem;border-radius:16px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.045);text-align:center}
-  .pillar-num{font-size:1rem;font-weight:900;font-family:var(--mono);letter-spacing:.14em;margin-bottom:.9rem;opacity:.9}
-  .pillar h4{font-size:1.75rem;font-weight:900;color:var(--white);margin-bottom:.6rem;line-height:1.25}
-  .pillar p{font-size:1rem;color:rgba(255,255,255,.42);line-height:1.6}
+  /* 卡片寬 275px、左右各 1.1rem padding ⇒ 文字可用約 235px。
+     最長的一行是「圖像、影片、聲音」8 個字，1.3rem 時約 187px，仍有餘裕不會折行。 */
+  .pillar-num{font-size:1.25rem;font-weight:900;font-family:var(--mono);letter-spacing:.14em;margin-bottom:1rem;opacity:.9}
+  .pillar h4{font-size:2.2rem;font-weight:900;color:var(--white);margin-bottom:.7rem;line-height:1.25}
+  .pillar p{font-size:1.3rem;color:rgba(255,255,255,.42);line-height:1.6}
 
-  /* ── 知識圖譜（P25） ── */
+  /* ── 知識圖譜（P27） ── */
   .kg{position:relative;width:100%;max-width:1120px;aspect-ratio:1120/600;margin:.5rem auto 0}
   /* svg 排在 DOM 最後（給 .kg-leaves.visible ~ svg 用），靠 z-index 壓回節點底下 */
   .kg svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:0}
@@ -329,6 +314,9 @@
   .img-carousel{background:transparent;border:none;box-shadow:none;overflow:visible}
   /* 框拿掉之後就沒有理由再把寬度卡在 1100 —— 放寬讓寬螢幕截圖吃滿高度 */
   .slide.demo .img-carousel{max-width:1560px}
+  /* P2 活動影片再放大：16:9 影片在 1920 寬的螢幕會先撞到上面的 1560 上限（只剩 1560×877），
+     解掉上限改由可用高度決定尺寸（約 1808×1017），左右仍留 slide 的 3rem padding */
+  .slide.demo.vidmax .img-carousel{max-width:none}
   .img-carousel>.carousel-img{position:absolute;inset:0;margin:auto;
     width:auto;height:auto;max-width:100%;max-height:100%;
     border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.16);
@@ -338,6 +326,18 @@
   /* ⚠ 素材改成貼合自己尺寸之後，每張大小不一樣 ⇒ 後一張蓋不滿前一張，邊緣會露出來。
      只要「後面還有已顯示的素材」，這一張就收掉，同時只留最新的一張。 */
   .img-carousel>.carousel-img:has(~ .carousel-img.visible){opacity:0}
+  /* 寬圖專用：素材比框還寬時會被 max-width 卡住，高度只剩別張的七成，
+     切到那一張時整個畫面會塌一截。解掉寬度上限改由高度決定，上下緣就跟前後幾張切齊。
+     ⚠ 左右溢出的部分落在「表情包欄」與它對面的等寬佔位上 —— 這兩塊在該張顯示時都還是空的
+     （表情包是最後一個 fragment，那時這張早就被 :has(~ .visible) 收掉了）。 */
+  /* ⚠ 不能直接寫 max-width:none：窄畫面（實測 4:3 1280×1024）左右兩塊固定 320px 的欄位
+     會把 carousel 壓到剩 482px，改由高度決定後圖寬會變成 1298px、超出畫面兩側被裁掉。
+     改成以「slide 可用寬度」為上限（100vw 扣掉左右 padding 再留一點餘裕）。 */
+  /* ⚠ 置中不能靠預設的 inset:0+margin:auto —— 絕對定位元素比容器寬時，auto margin 會解成
+     「左貼齊、右邊單邊溢出」（margin 不會變負），整張圖看起來就往右偏。
+     改用 left:50% ＋ translate 屬性置中；translate 跟 .fragment 動畫用的 transform 是
+     兩個獨立屬性，不會互相蓋掉。 */
+  .img-carousel>.carousel-img.fit-h{max-width:calc(100vw - 7rem);left:50%;right:auto;translate:-50%}
   .img-carousel>video.carousel-img{background:#111}
   /* 佔位方塊沒有內在尺寸，要撐滿才看得到 */
   .img-carousel>.carousel-img.slot{width:100%;height:100%;max-width:none;max-height:none;
@@ -349,7 +349,7 @@
   .video-frame .slot strong{color:rgba(255,255,255,.62)}
   .video-frame .slot em{color:rgba(255,255,255,.45)}
 
-  /* ── 專屬表情包（P26）：最後一張圖之後才整組出現 ──
+  /* ── 專屬表情包（P28）：最後一張圖之後才整組出現 ──
      放在 .demo-stage 的第二欄 ＝ 介面圖右邊的獨立區域，不疊在圖上面 */
   .demo-stage{display:flex;align-items:stretch;justify-content:center;gap:1.4rem;flex:1;width:100%;max-width:1760px;margin:0 auto;min-height:0}
   /* 左邊補一個跟表情欄等寬的隱形佔位 ⇒ 圖片永遠置中。
@@ -367,11 +367,27 @@
   .sticker-rail>.sticker img{position:absolute;left:8%;top:8%;width:84%;height:84%;object-fit:contain}
   .sticker-rail>.sticker:nth-child(1){left:66px;top:1%}
   .sticker-rail>.sticker:nth-child(2){left:4px;top:34%}
-  .sticker-rail>.sticker:nth-child(3){left:76px;top:67%}
+  /* ⚠ 第三張改成從底部錨定。用 top:67% 的話它的下緣 ＝ 0.67×欄高＋238px，
+     欄位只要矮於 721px 就會戳出容器底部、讓整頁長出捲軸（加了章節標頭之後就會踩到）。 */
+  .sticker-rail>.sticker:nth-child(3){left:76px;top:auto;bottom:3%}
   .sticker-rail>.sticker:nth-child(1) img{animation:bob 3s ease-in-out infinite}
   .sticker-rail>.sticker:nth-child(2) img{animation:bob 3.7s ease-in-out infinite .45s}
   .sticker-rail>.sticker:nth-child(3) img{animation:bob 4.3s ease-in-out infinite .9s}
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
+
+  /* ── LINE 貼圖 QR（P28）：放左欄，跟表情包「同一步」出現 ──
+     不掛 .fragment —— 掛了會多吃一次按鍵，且它 DOM 在前、會比表情包先亮。
+     改盯同一個 stage 裡的 .sticker-rail.visible ⇒ 第五步按下去左右同時亮，退回也一起消失。 */
+  .demo-stage:has(.qr-rail)::before{content:none}  /* 左側隱形佔位由 QR 欄本人接手，不拿掉會多出 320px 把圖擠歪 */
+  .qr-rail{flex:0 0 320px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;
+    opacity:0;transform:translateY(12px);transition:opacity .45s,transform .45s}
+  .demo-stage:has(.sticker-rail.visible) .qr-rail{opacity:1;transform:none}
+  /* 總覽縮圖只把 .fragment 硬設成可見（inline style），QR 欄要自己跟上，否則縮圖左欄是空的 */
+  .overview-thumb .qr-rail{opacity:1;transform:none}
+  /* QR 原檔解析度很低，放大時用 pixelated 保持模塊邊緣銳利 —— 平滑插值會糊到掃不出來 */
+  .qr-rail img{width:238px;height:238px;padding:14px;background:#fff;border-radius:20px;
+    box-shadow:0 10px 28px rgba(0,0,0,.18);image-rendering:pixelated}
+  .qr-rail b{font-size:1.15rem;font-weight:800;color:var(--text2)}
 
   /* ── 流程的 loop 與 AI 承包段（P30） ── */
   .flow-block{position:relative}
@@ -392,7 +408,7 @@
   .flow-old .flow-step,.flow-old .flow-tag,.flow-old .flow-loop span{
     transition:color .45s,background .45s,border-color .45s,box-shadow .45s}
 
-  /* ── 節點彈窗（P25） ── */
+  /* ── 節點彈窗（P27） ── */
   /* ⚠ 不要在這裡寫 pointer-events:auto —— 非 active 的 slide 是靠 .slide{pointer-events:none}
      整棵關掉的，子孫只要顯式設 auto 就會把自己救回來 ⇒ 別頁的相同座標也點得到這三顆。
      active 頁本來就有 .slide.active{pointer-events:auto}，不需要再補。 */
@@ -466,15 +482,21 @@
   .cover-inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.2rem;width:100%;height:100%;padding:3rem}
   .cover-logo{width:min(300px,26vw);height:auto}
   .cover-mobius{width:min(620px,52vw);height:auto;animation:mobiusFloat 7s ease-in-out infinite}
+  /* Slido 提問 QR：跟主視覺同高左右併排、整列置中；logo 與 slogan 是 column 的獨立子項，
+     不受這一列變寬影響，維持各自置中。QR 尺寸 ＝ 環的顯示高度（620×720/972 ≈ 459 → 取 460 / 38vw）。 */
+  .cover-row{display:flex;align-items:center;justify-content:center;gap:2.6rem}
+  .cover-qr{width:min(460px,38vw);height:auto;border-radius:18px;box-shadow:0 12px 40px rgba(0,0,0,.45)}
   .cover-slogan{width:min(560px,48vw);height:auto}
   @keyframes mobiusFloat{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-16px) rotate(2deg)}}
+  /* ── 問卷 QR（P37）：跟上方 Q&A 文字同一直欄、上下排列置中 ── */
+  .qa-qr{display:block;margin:2.4rem auto 0;width:min(380px,36vh);height:auto;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,.45)}
 
   /* ── 開發藍圖（同心圓：內圈＝現在、外圈＝規劃） ── */
   .rm{position:relative;width:100%;max-width:1780px;aspect-ratio:1780/880;margin:.2rem auto 0}
   .rm svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:0}
   .rm-n{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;z-index:2}
   /* 由內而外：實心 → 淡底 → 空心虛線，直接對應「已完成 → 進行中 → 還沒做」 */
-  /* 字色跟 P32「現在，Rana.AI 已經在公司內部啟用」那頁同一款漸層。
+  /* 字色跟 P33「現在，Rana.AI 已經在公司內部啟用」那頁同一款漸層。
      ⚠ background-clip:text 會吃掉 background，所以底色與漸層字必須拆兩層元素。 */
   .rm-core{padding:1.15rem 2.1rem;border-radius:18px;font-size:1.9rem;font-weight:900;
     background:var(--card);border:2px solid rgba(0,0,0,.07);box-shadow:0 8px 30px rgba(0,0,0,.15)}
@@ -490,7 +512,7 @@
   /* 第三層＝剛需（空心＋虛線）＋ 底下掛幾個小價值字，顏色跟著所屬分區走 */
   .rm-need{padding:.52rem 1.1rem;border-radius:13px;font-size:1.18rem;font-weight:800;
     background:var(--bg);border:2px dashed;text-align:center;line-height:1.3}
-  /* 最外圈：從虛線框再往外放射的小價值字（做法同 P31 的葉節點） */
+  /* 最外圈：從虛線框再往外放射的小價值字（做法同 P27 的葉節點） */
   /* 不畫框，只有字；靠背景色描邊挖空，壓在連線上也讀得到 */
   .rm-val{padding:.1rem .3rem;font-family:var(--font);font-size:.92rem;font-weight:700;
     text-shadow:0 0 6px var(--bg),0 0 6px var(--bg),0 0 4px var(--bg)}
@@ -513,6 +535,113 @@
 
   .wip-badge{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.1em;padding:.25rem .9rem;border-radius:100px;background:var(--amber-lt);color:var(--amber);margin-left:.7rem;vertical-align:middle}
 
+  /* 全形「？」「！」的字框右半邊是空的。出現在行尾時，text-align:center 是照「字框」
+     算的，於是整行的墨水會往左偏約半個字寬 —— 5rem 以上的大字看得很明顯（P26）。
+     把多出來的字寬吃掉，置中才是照人眼看到的位置算。 */
+  .optical-q{margin-right:-.34em}
+
+  /* ── 投影加大級距 +25%（.z125） ──
+     只套在「內容佔版面不到七成、四周大量留白」的頁：後排看不見是因為字太小，不是版面太滿。
+     ⚠ 用 zoom 不是 transform:scale —— transform 不參與版面計算，一頁有兩個以上區塊時
+       （例如 P4 的標題＋三欄痛點）各自繞自己中心放大，區塊間距不會跟著長，放到 1.25 倍就會疊在一起。
+       zoom 會真的把盒子撐大，間距一起放大。
+     ⚠ 不可套在 .slide 自己身上：.slide 是 inset:0 的絕對定位，zoom 會把版面盒一起放大成 125% 視窗。
+     ⚠ bg-glow 的位置是內聯 px（例如 top:-200px），跟著 zoom 會飄掉，要排除。 */
+  .slide.z125>*{zoom:1.25}
+  .slide.z125>.bg-glow{zoom:1}
+
+  /* ── 圖文頁的加大（.zfit）──
+     跟 .z125 的差別：這些頁下方有圖，圖本來就接近滿版，整頁一起 ×1.25 會溢出。
+     拆成兩段控制：
+       ① 標題區固定 ×1.25 ⇒ 所有內容頁主標一律 81px、章節標籤 21px，跟 .z125 的頁對得齊
+       ② 下方的圖用 --cz 逐頁指定，各自放到該頁塞得下的最大值
+     ⚠ 不能整頁共用同一個倍率：倍率會被最擠的那頁綁死（實測 P32 只到 ×0.96），
+       標題得跟著縮，結果是全部一起變小 —— 跟「後排看不見」的目的相反。 */
+  .slide.zfit{padding:2rem 2.5rem 1.5rem}
+  .slide.zfit>.text-center{zoom:1.25}
+  .slide.zfit>:not(.text-center):not(.bg-glow){zoom:var(--cz,1)}
+  /* ⚠ .kg（P27）與 .sg（P32）是「max-width ＋ 固定長寬比」的圖框：
+     zoom 會把 max-width 一起放大 ⇒ 方框跟著撐大、把版面擠爆
+     （實測 P32 只能縮到 ×0.90，節點字反而從 13px 掉到 11.7px，跟目的相反）。
+     改成吃掉標題以外的剩餘高度、寬度由長寬比推導 ⇒ 方框尺寸固定，
+     zoom 就只作用在裡面的節點文字上。 */
+  /* ⚠ max-width:100% 不能省：寬度是由「剩餘高度 × 長寬比」推導的，
+     視窗一矮（例如 4:3 投影機）就會推出比容器還寬的框，直接超出左右留白。
+     有這條的話會反過來被寬度夾住，再由長寬比推回較矮的高度。 */
+  .slide.zfit>.kg,.slide.zfit>.sg{max-width:100%;width:auto;flex:1 1 auto;min-height:0}
+  /* P32（規則庫圖譜）是全 deck 最擠的一頁：27 個標籤靠 JS 的解重疊演算法排開，
+     圖框一縮小演算法就排不動（框從 1460×700 縮到 1309×628 時，重疊配對從 1 組變 8 組）。
+     標題放大吃掉的高度，從這頁自己的留白補回去。 */
+  .slide.zfit.tightpad{padding:1rem 1.2rem .8rem}
+
+  /* ── 章節標頭（01–04 xx組） ──
+     xl 頁（.slide.xl .tag）與 demo 頁的標頭必須同尺寸，否則同一組的兩頁一前一後放，
+     標頭一大一小會看起來像跳到別的段落。demo 頁不是 .xl，要單獨補一條同值的規則。 */
+  /* ⚠ 尺寸要對齊「放大後」的 xl 標頭，不是對齊 .slide.xl .tag 的原始值：
+     xl 內容頁掛了 .z125／.zfit，標頭實際是 .95rem×1.25 ＝ 21px。
+     這裡若還寫 .95rem，同一組（例如 01 工作組）在 P22 是 21px、在 P23/P24 變 17px。 */
+  .slide.demo .tag{font-size:1.19rem;padding:.45rem 1.5rem;margin-bottom:.7rem}
+
+  /* ── 痛點 → 解法（P16） ── */
+  .p2s-row{display:flex;gap:1.5rem;max-width:1300px;width:100%;margin-top:2rem;align-items:stretch}
+  .p2s-item{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center}
+  .p2s-pain{width:100%;padding:.85rem 1rem;border-radius:13px;
+    background:var(--rose-bg);border:1px solid rgba(225,29,72,.18);color:var(--text2);
+    font-size:1.45rem;font-weight:700;line-height:1.35;
+    display:flex;align-items:center;justify-content:center;gap:.55rem}
+  .p2s-pain::before{content:'✕';flex:0 0 26px;height:26px;border-radius:50%;
+    background:var(--rose);color:var(--white);font-size:.8rem;font-weight:900;
+    display:flex;align-items:center;justify-content:center}
+  .p2s-arrow{font-size:1.9rem;line-height:1;color:var(--text4);margin:.5rem 0}
+  /* flex:1 讓四張解法卡等高 —— 解法文字長度差到兩倍，不撐平底部會參差不齊 */
+  .p2s-solve{width:100%;flex:1;padding:1.6rem 1.1rem;border-radius:16px;
+    border:1px solid var(--border);background:var(--card);box-shadow:0 2px 14px rgba(0,0,0,.05);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem}
+  .p2s-solve .p2s-ico{font-size:2.3rem;line-height:1}
+  .p2s-solve b{font-size:1.6rem;font-weight:800;line-height:1.35}
+
+  /* ── 截圖彈窗（P11 / P14） ── */
+  /* 觸發點是隱形的 .fragment：按 → 切到它就開窗，頁面上不留按鈕。
+     ⚠ 用 display:none 而不是 visibility/opacity —— 後兩者仍會佔一格版面，
+       demo 頁是 flex 直排，會在圖片下方壓出一條看不出原因的空白。 */
+  .modal-cue{display:none}
+  /* ── 海盜船剪影（P36）：純 SVG，不吃圖檔 ──
+     ⚠ 文字那層一定要自己給 position:relative + z-index —— 船是 z-index:0 的絕對定位元素，
+       文字若停在 auto 層，誰壓誰要看瀏覽器的堆疊實作，換一台電腦投影可能整段字被蓋掉。 */
+  /* 文字擺上半、船擺下半，兩者不重疊 ⇒ 船可以放大放亮，文字也不必加暗底救可讀性。
+     ⚠ 一開始是讓船滿版、文字壓在船上，結果船的縮放跟著螢幕寬高比走：
+       16:9 剛好、4:3（實測 1280×1024）骷髏旗直接壓進標題筆畫。分帶之後就跟比例無關了。 */
+  .voyage{overflow:hidden;justify-content:flex-start;padding-top:11vh}
+  .voyage-copy{position:relative;z-index:1}
+  /* ⚠ 尺寸用 height 驅動（不是 width）：船的可見高度固定佔版面 64%，
+     配 preserveAspectRatio="xMidYMax meet" 貼底置中 ⇒ 桅頂在任何比例都落在同一個高度帶，
+     不會在某台投影機上竄進文字裡。 */
+  /* overflow:visible ＝ 讓海平線畫到 viewBox 之外，補滿整個畫面寬度（船本身仍在 viewBox 內） */
+  .pirate{position:absolute;left:50%;bottom:-2%;width:100%;height:64%;overflow:visible;
+    transform:translateX(-50%);pointer-events:none;z-index:0;
+    animation:sailBob 9s ease-in-out infinite}
+  /* ⚠ keyframe 裡必須把 translateX(-50%) 一起寫回去 —— 動畫的 transform 會整條取代
+     內聯／規則裡的值，只寫 translateY 的話船會瞬間往右跳半個身位。 */
+  @keyframes sailBob{0%,100%{transform:translateX(-50%) translateY(0)}
+                     50%{transform:translateX(-50%) translateY(-12px)}}
+  .pirate .hull{fill:currentColor;opacity:.17}
+  /* 描邊用 slide 的底色 ⇒ 在 group 攤平時把相鄰的帆切開；攤平後再乘 group opacity，
+     底色描邊疊在同色背景上等於隱形，看到的就只是「帆與帆之間的縫」。 */
+  .pirate .sails path{stroke:var(--dark);stroke-width:6;stroke-linejoin:round}
+  .pirate .rig{fill:none;stroke:currentColor;stroke-width:1.4;opacity:.22;vector-effect:non-scaling-stroke}
+  .pirate .sea{fill:none;stroke:currentColor;stroke-width:1.6;opacity:.16;vector-effect:non-scaling-stroke}
+  /* 骷髏旗單獨拉高濃度 —— 旗子是「海盜」的唯一辨識點，跟船身同濃度就只剩一艘普通帆船 */
+  .pirate .flag{fill:currentColor;opacity:.45}
+
+  /* 純截圖彈窗：不放標題文字，外框收到跟圖片一樣大。
+     ⚠ width:auto 不能省 —— .modal-box 預設 width:100%，直式截圖（P11 是 1298×1811）
+       高度先頂到 82vh、寬度只剩六百多 px，固定寬的框會在左右各留近 500px 的空白。
+     padding 就是圖外那圈白邊的厚度。 */
+  .modal-box.shot{padding:.55rem;width:auto;display:flex;align-items:center;justify-content:center;max-width:1600px}
+  .modal-box.shot img{max-width:100%;max-height:82vh;width:auto;height:auto;border-radius:12px;display:block}
+  /* ⚠ 若之後要在彈窗裡放 .slot 佔位，要先解掉它的 position:absolute;inset:0，
+     否則會塌成 0 高度：.modal-box.shot .slot{position:relative;inset:auto;min-height:58vh} */
+
   /* ══════════════ 動態 loop 特效 ══════════════
      只做四處，而且都在強化語意，不是裝飾：
      ① 背景光暈呼吸 ② Now 漸層流動 ③ 圖譜連線有東西在跑 ④ 生產線箭頭依序推進
@@ -532,6 +661,13 @@
     stroke-dasharray:16 200;animation:dashFlow 3.4s linear infinite}
   .sg-flow{stroke-width:3;fill:none;opacity:.55;
     stroke-dasharray:14 190;animation:dashFlow 4.2s linear infinite}
+  /* 開發藍圖（P34）同一套：核心 → 功能區塊、功能區塊 → 交互 各疊一條會跑的亮線。
+     ⚠ dasharray 的總長必須等於 dashFlow 的位移量 216（16+200），
+        不相等的話每跑完一圈會看到亮線瞬間跳一格。 */
+  .rm-flow{stroke-width:3;fill:none;opacity:.5;
+    stroke-dasharray:16 200;animation:dashFlow 3.8s linear infinite}
+  .rm-flow2{stroke-width:2.2;fill:none;opacity:.42;
+    stroke-dasharray:16 200;animation:dashFlow 4.6s linear infinite}
   @keyframes dashFlow{from{stroke-dashoffset:216}to{stroke-dashoffset:0}}
 
   /* ④ 生產線箭頭：由左至右依序推一次 */
@@ -545,9 +681,19 @@
 
   /* 使用者若在系統關掉動態效果，全部停掉 */
   @media(prefers-reduced-motion:reduce){
-    .bg-glow,.now-title,.kg-flow,.sg-flow,.kg-core,.kg-leaf,
+    .bg-glow,.now-title,.kg-flow,.sg-flow,.rm-flow,.rm-flow2,.kg-core,.kg-leaf,
     .sticker-rail>*,.slide.xl .pipeline .pipe-arrow{animation:none!important}
+    /* ⚠ 這顆要單獨列，且要把 translateX(-50%) 補回來 —— animation:none 只是停掉動畫，
+       不會還原 transform，漏寫的話船會停在沒有水平置中的位置。 */
+    .pirate{animation:none!important;transform:translateX(-50%)!important}
   }
+
+  /* 非當前頁（含總覽縮圖裡的複製品）暫停所有 loop 動畫：畫面上看不到，
+     GPU 卻整場在燒（8 顆大尺寸 blur 光暈 ＋ 30 多條 dashFlow 全天候在跑）。
+     paused 是暫停不是移除，切回該頁從原相位續播，視覺無差。
+     ⚠ !important 不能省 —— .slide.xl .pipeline .pipe-arrow 這類多 class 的
+       animation 簡寫優先序更高，不加的話那幾條在非當前頁照跑。 */
+  .slide:not(.active) *{animation-play-state:paused!important}
 
   @media(max-width:768px){
     html,body{font-size:15px}
@@ -555,10 +701,9 @@
     h1{font-size:2rem}h2{font-size:1.5rem}
     .section-quote{font-size:1.8rem}
     .big-num{font-size:4rem}
-    .pain-grid,.stat-row{flex-direction:column;gap:1.5rem}
+    .pain-grid{flex-direction:column;gap:1.5rem}
     .pipeline{flex-direction:column}
     .pipe-arrow,.af-arrow{transform:rotate(90deg);padding:.3rem 0}
-    .cap-row{flex-direction:column;align-items:center}
     .redo-grid{grid-template-columns:1fr}
     .vs-grid{grid-template-columns:repeat(2,1fr);gap:1.2rem;margin-top:1.5rem}
     .vs-new{font-size:2.4rem}
@@ -566,6 +711,12 @@
     .pillar-row{flex-direction:column;margin-top:1.5rem}
     .pillar{padding:1.1rem}
     .pillar h4{font-size:1.3rem}
+    /* 手機沒有「後排看不見」的問題，+25% 只會把頁面撐到要捲 */
+    .slide.z125>*{zoom:1}
+    .slide.zfit{padding:1.5rem}
+    .slide.zfit>*{zoom:1}
+    /* 圖框在手機上回到原本的 max-width 流式排版（.kg/.sg 本來就在手機隱藏） */
+    .slide.zfit>.kg,.slide.zfit>.sg{width:100%;flex:0 1 auto}
     /* xl 是給投影用的放大級距，手機一律收回來，否則整頁變成要捲的 */
     .slide.xl h1{font-size:2rem}
     .slide.xl h2{font-size:1.9rem}
@@ -597,15 +748,9 @@
     .slide.xl .pipe-step p{font-size:.9rem}
     .slide.xl .step-num{width:32px;height:32px;font-size:.9rem}
     .slide.xl .pipe-arrow{font-size:1.2rem}
-    .slide.xl .cap-pill{padding:.9rem}
-    .slide.xl .cap-emoji{font-size:1.6rem}
-    .slide.xl .cap-pill h4{font-size:1.05rem}
-    .slide.xl .cap-pill p{font-size:.9rem}
     .slide.xl .redo-num{font-size:2.6rem}
     .slide.xl .redo-label{font-size:1rem}
     .slide.xl .redo-sub{font-size:.9rem}
-    .slide.xl .stat-num{font-size:2.6rem}
-    .slide.xl .stat-label{font-size:1rem}
     .sg,.rm{display:none}
     .modal-box{padding:1.4rem}
     .metric{grid-template-columns:88px 1fr 46px;gap:.5rem}
@@ -613,8 +758,18 @@
     .flow-tag{width:auto;justify-content:center;padding:0 0 .2rem}
     .flow-arrow{transform:rotate(90deg);justify-content:center}
     .kg{display:none}
-    /* 表情欄與它左邊的等寬佔位在手機一起收掉，否則 320+320 會把圖片擠成 0 寬 */
-    .sticker-rail,.demo-stage::before{display:none}
+    /* 表情欄與它左邊的等寬佔位（含 QR 欄）在手機一起收掉，否則 320+320 會把圖片擠成 0 寬 */
+    .sticker-rail,.demo-stage::before,.qr-rail{display:none}
+    /* 手機沒有左右那兩塊空位可以溢出，寬圖要收回框內，否則會被裁掉兩側 */
+    .img-carousel>.carousel-img.fit-h{max-width:100%}
+    /* 四欄橫排在手機上一定爆版；改直排，痛點與解法仍然上下相接 */
+    .p2s-row{flex-direction:column;gap:1rem;margin-top:1.2rem}
+    .p2s-pain{font-size:1.05rem;padding:.6rem .8rem}
+    .p2s-arrow{font-size:1.3rem;margin:.3rem 0}
+    .p2s-solve{padding:.9rem}
+    .p2s-solve .p2s-ico{font-size:1.6rem}
+    .p2s-solve b{font-size:1.15rem}
+    .slide.demo .tag{font-size:.8rem;padding:.3rem 1rem;margin-bottom:.5rem}
     .tree-branches{flex-direction:column;align-items:center}
     .tree-branches::before{display:none}
     .tree-branch::before{display:none}
@@ -637,19 +792,29 @@
     <img class="cover-bg" src="assets/Slides-Cover-assets/Siides-Cover-bg.png" alt="">
     <div class="cover-inner">
       <img class="cover-logo" src="assets/Slides-Cover-assets/Slides-Cover-oneconf-logo.png" alt="OneConf">
-      <img class="cover-mobius" src="assets/Slides-Cover-assets/Siides-Cover-mobius-strip.png" alt="">
+      <div class="cover-row">
+        <img class="cover-mobius" src="assets/Slides-Cover-assets/Siides-Cover-mobius-strip.png" alt="">
+        <img class="cover-qr" src="assets/Slides-Cover-assets/16_Frog Lee_Q&amp;A.png" alt="Slido Q&amp;A QR code">
+      </div>
       <img class="cover-slogan" src="assets/Slides-Cover-assets/Siides-Cover-oneloop-slogan.png" alt="">
     </div>
   </div>
 
-  <!-- ═══════ P2: Cover ═══════ -->
-  <div class="slide xl" data-slide="1">
+  <!-- ═══════ P2: OneConf 活動影片（assets/oneconf.mp4） ═══════ -->
+  <div class="slide demo vidmax" data-slide="1">
+    <div class="img-carousel">
+      <video class="carousel-img" src="assets/oneconf.mp4" controls playsinline preload="metadata"></video>
+    </div>
+  </div>
+
+  <!-- ═══════ P3: Cover ═══════ -->
+  <div class="slide xl z125" data-slide="2">
     <div class="bg-glow" style="width:600px;height:600px;background:var(--emerald);top:-200px;right:-100px"></div>
     <div class="bg-glow" style="width:400px;height:400px;background:var(--amber);bottom:-150px;left:-50px"></div>
     <div class="text-center">
       <div class="cover-badge" style="background:var(--emerald-lt);color:var(--emerald)">AI-Powered Content Production</div>
       <h1>我用 AI 蓋了一間<br>經紀公司</h1>
-      <p class="subtitle" style="margin-top:1rem">從 2 個角色到 10 個角色的自動化之路</p>
+      <p class="subtitle" style="margin-top:1rem">讓 AI 自己養活自己的自動化之路</p>
       <div class="cover-meta" style="justify-content:center">
         <div><strong>Speaker</strong>&ensp;Frog</div>
         <div><strong>Project</strong>&ensp;AI 生成工作站</div>
@@ -658,25 +823,25 @@
     </div>
   </div>
 
-  <!-- ═══════ P2: Origin ═══════ -->
-  <div class="slide xl" data-slide="2">
+  <!-- ═══════ P4: Origin ═══════ -->
+  <div class="slide xl z125" data-slide="3">
     <div class="text-center">
       <div class="tag amber">Origin</div>
-      <h2>本來只是做 2 個角色的影片</h2>
-      <p class="lead">很快變成 10 個。每天的工作量開始失控。</p>
+      <h2>本來，每天做 2 支影片</h2>
     </div>
-    <div class="pain-grid">
-      <div class="pain-item fragment">
+    <!-- fragment 掛在容器上 ＝ 三欄一起淡入（掛在每一欄上會變成按三次才看完） -->
+    <div class="pain-grid fragment">
+      <div class="pain-item">
         <div class="pain-num" style="color:var(--rose)">10×</div>
         <div class="pain-label">素材量爆炸</div>
         <div class="pain-desc">服裝、場景、舞蹈影片<br>每個角色都要一套</div>
       </div>
-      <div class="pain-item fragment">
+      <div class="pain-item">
         <div class="pain-num" style="color:var(--amber)">∞</div>
-        <div class="pain-label">手動流程</div>
+        <div class="pain-label">手動地獄</div>
         <div class="pain-desc">換裝、修圖、做影片<br>寫文案、做 Hashtag</div>
       </div>
-      <div class="pain-item fragment">
+      <div class="pain-item">
         <div class="pain-num" style="color:var(--violet)">0</div>
         <div class="pain-label">品質一致性</div>
         <div class="pain-desc">膚色偏差、比例失調<br>每次生成都是賭博</div>
@@ -684,27 +849,31 @@
     </div>
   </div>
 
-  <!-- ═══════ P3: Nightmare ═══════ -->
-  <div class="slide xl" data-slide="3">
+  <!-- ═══════ P5: Nightmare ═══════ -->
+  <div class="slide xl z125" data-slide="4">
     <div class="bg-glow" style="width:500px;height:500px;background:var(--rose);top:50%;left:50%;transform:translate(-50%,-50%)"></div>
     <div class="text-center">
       <h2 class="fragment" style="font-size:2.6rem;color:var(--text3);font-weight:500;margin-bottom:2rem">經營 1 個虛擬 KOL 是好玩</h2>
-      <div class="section-quote fragment" style="color:var(--rose)">經營 10 個，是<span style="color:var(--violet)">惡夢</span>。</div>
+      <div class="section-quote fragment" style="color:var(--rose)">經營 10 個，是<span style="color:var(--violet)">惡夢</span></div>
     </div>
   </div>
 
-  <!-- ═══════ P4: Section — 經紀公司 (dark) ═══════ -->
-  <div class="slide accent xl" data-slide="4">
-    <div class="section-quote">所以我決定<br>做一間經紀公司</div>
-    <div class="section-sub fragment" style="margin-top:1.5rem">
-      <span style="color:var(--emerald);font-weight:700">10 天</span> 做完雛型
-      &emsp;·&emsp;
-      <span style="color:var(--amber);font-weight:700">2 個月</span> 持續優化、補充功能
+  <!-- ═══════ P6: Section — 經紀公司 (dark) ═══════ -->
+  <div class="slide accent xl z125" data-slide="5">
+    <!-- ⚠ 這頁原本沒有 .text-center 包起來 ⇒ 兩行長度不一時是靠左對齊的。
+         其它 accent 段落頁（P19 / P26 / P29）都有包，這頁漏了。 -->
+    <div class="text-center">
+      <div class="section-quote">所以我決定<br>做一間經紀公司</div>
+      <div class="section-sub fragment" style="margin-top:1.8rem;font-size:2.2rem;max-width:1160px">
+        <span style="color:var(--emerald);font-weight:700">10 天</span> 做完雛型
+        &emsp;·&emsp;
+        <span style="color:var(--amber);font-weight:700">2 個月</span> 持續優化、補充功能
+      </div>
     </div>
   </div>
 
-  <!-- ═══════ P5: What I Built (timeline) ═══════ -->
-  <div class="slide xl" data-slide="5">
+  <!-- ═══════ P7: What I Built (timeline) ═══════ -->
+  <div class="slide xl zfit" data-slide="6" style="--cz:1.25">
     <div class="text-center">
       <div class="tag emerald">What I Built</div>
       <h2>我做了什麼？</h2>
@@ -738,12 +907,11 @@
     </div>
   </div>
 
-  <!-- ═══════ P6: Dev Process ═══════ -->
-  <div class="slide xl" data-slide="6">
+  <!-- ═══════ P8: Dev Process ═══════ -->
+  <div class="slide xl zfit" data-slide="7" style="--cz:1.25">
     <div class="text-center">
       <div class="tag sky">Process</div>
       <h2>我怎麼開始的？</h2>
-      <p class="lead">不是一口氣全寫完，而是邊做邊長出來的</p>
     </div>
 
     <div class="approach-flow">
@@ -786,12 +954,11 @@
     </div>
   </div>
 
-  <!-- ═══════ P7: Architecture Tree ═══════ -->
-  <div class="slide xl" data-slide="7">
+  <!-- ═══════ P9: Architecture Tree ═══════ -->
+  <div class="slide xl zfit" data-slide="8" style="--cz:1.14">
     <div class="text-center">
       <div class="tag emerald">Architecture</div>
-      <h2>就這樣疊出來的架構</h2>
-      <p class="lead">每一層都是 AI 分析後推薦的方案</p>
+      <h2>整個系統的骨架</h2>
     </div>
 
     <div class="tree">
@@ -839,8 +1006,8 @@
     </div>
   </div>
 
-  <!-- ═══════ P8: Demo — IG 數據分析 (2 images) ═══════ -->
-  <div class="slide demo" data-slide="8">
+  <!-- ═══════ P10: Demo — IG 數據分析 (2 images) ═══════ -->
+  <div class="slide demo" data-slide="9">
     <div class="demo-header">
       <div class="demo-title">IG 數據分析</div>
       <p class="subtitle">Dashboard · Insights · 內容表現追蹤</p>
@@ -852,8 +1019,22 @@
     </div>
   </div>
 
-  <!-- ═══════ P9: Demo — 任務排程 (3 images) ═══════ -->
-  <div class="slide demo" data-slide="9">
+  <!-- ═══════ P11: Demo — 爆款分析（主圖 ＋ 可點開的細部數據彈窗） ═══════
+       彈窗內容在檔案下方的 #modal-insight。 -->
+  <div class="slide demo" data-slide="10">
+    <div class="demo-header">
+      <div class="demo-title">爆款分析</div>
+    </div>
+    <div class="img-carousel">
+      <img class="carousel-img" src="assets/p10_爆款分析.png" alt="爆款分析">
+    </div>
+    <!-- 隱形的 fragment：在這頁再按一次 → 就開彈窗，頁面上不放按鈕。
+         display:none 不佔版面，但仍然被 querySelectorAll('.fragment') 數進去。 -->
+    <div class="fragment modal-cue" data-modal="modal-insight"></div>
+  </div>
+
+  <!-- ═══════ P12: Demo — 任務排程 (3 images) ═══════ -->
+  <div class="slide demo" data-slide="11">
     <div class="demo-header">
       <div class="demo-title">任務排程</div>
       <p class="subtitle">Kanban · 任務建立 · 狀態追蹤 · 歷史記錄</p>
@@ -866,8 +1047,8 @@
     </div>
   </div>
 
-  <!-- ═══════ P10: Demo — 發佈工具 (1 image) ═══════ -->
-  <div class="slide demo" data-slide="10">
+  <!-- ═══════ P13: Demo — 發佈工具 (1 image) ═══════ -->
+  <div class="slide demo" data-slide="12">
     <div class="demo-header">
       <div class="demo-title">發佈工具</div>
       <p class="subtitle">Caption 生成 · Hashtag · 一鍵 Copy</p>
@@ -878,8 +1059,8 @@
     </div>
   </div>
 
-  <!-- ═══════ P11: Demo — 素材庫 (2 images) ═══════ -->
-  <div class="slide demo" data-slide="11">
+  <!-- ═══════ P14: Demo — 素材庫 (2 images) ═══════ -->
+  <div class="slide demo" data-slide="13">
     <div class="demo-header">
       <div class="demo-title">素材庫</div>
       <p class="subtitle">素材管理 · 分類搜尋 · Pipeline 整合</p>
@@ -889,41 +1070,45 @@
       <img src="assets/素材庫_2.jpg" alt="Asset Library Dance Videos" class="carousel-img fragment">
       <div class="img-counter"><span class="img-idx">1</span> / 2</div>
     </div>
+    <!-- 看完第二張後再按一次 → 就跳出素材庫細部的彈窗 -->
+    <div class="fragment modal-cue" data-modal="modal-asset"></div>
   </div>
 
-  <!-- ═══════ P12: Pipeline ═══════ -->
-  <div class="slide xl" data-slide="12">
+  <!-- ═══════ P15: Pipeline ═══════ -->
+  <div class="slide xl zfit" data-slide="14" style="--cz:1.25">
     <div class="text-center">
       <div class="tag violet">Workflow</div>
       <h2>五步生產線</h2>
       <p class="lead">前一步的輸出，自動成為下一步的輸入</p>
     </div>
-    <div class="pipeline">
-      <div class="pipe-step fragment">
+    <!-- fragment 掛在 .pipeline 上 ＝ 五步一起淡入。
+         ⚠ 不要改動 .pipeline 的子元素順序 —— 箭頭的依序推進動畫是用 :nth-child(2/4/6/8) 選的 -->
+    <div class="pipeline fragment">
+      <div class="pipe-step">
         <div class="step-num" style="background:var(--amber)">1</div>
         <h4>AI 換裝</h4>
         <p>指定風格<br>批量生成變體</p>
       </div>
       <div class="pipe-arrow">→</div>
-      <div class="pipe-step fragment">
+      <div class="pipe-step">
         <div class="step-num" style="background:var(--emerald)">2</div>
         <h4>品質評分</h4>
         <p>AI 視覺打分<br>過濾不合格</p>
       </div>
       <div class="pipe-arrow">→</div>
-      <div class="pipe-step fragment">
+      <div class="pipe-step">
         <div class="step-num" style="background:var(--sky)">3</div>
         <h4>場景替換</h4>
         <p>一鍵換背景<br>保留主體</p>
       </div>
       <div class="pipe-arrow">→</div>
-      <div class="pipe-step fragment">
+      <div class="pipe-step">
         <div class="step-num" style="background:var(--violet)">4</div>
         <h4>影片合成</h4>
         <p>自動生成<br>跳舞影片</p>
       </div>
       <div class="pipe-arrow">→</div>
-      <div class="pipe-step fragment">
+      <div class="pipe-step">
         <div class="step-num" style="background:var(--rose)">5</div>
         <h4>產出貼文</h4>
         <p>文案 + Hashtag<br>一鍵 Copy</p>
@@ -931,146 +1116,112 @@
     </div>
   </div>
 
-  <!-- ═══════ P13: AI 不只是生圖工具 ═══════ -->
-  <div class="slide xl" data-slide="13">
+  <!-- ═══════ P16: 把其它痛點也變成服務（痛點 → 解法，四組） ═══════ -->
+  <div class="slide xl zfit" data-slide="15" style="--cz:1.25">
     <div class="text-center">
       <div class="tag rose">AI Capabilities</div>
-      <h2>AI 不只是生圖工具</h2>
-      <p class="lead">在這個系統裡，AI 做了五件事</p>
+      <h2>把其它痛點也變成服務</h2>
     </div>
 
-    <div class="cap-row">
-      <div class="cap-pill fragment">
-        <div class="cap-emoji">✦</div>
-        <h4 style="color:var(--amber)">擴寫</h4>
-        <p>一張底圖<br>批量換裝變體</p>
+    <div class="p2s-row">
+      <div class="p2s-item fragment">
+        <div class="p2s-pain">沒想法</div>
+        <div class="p2s-arrow">↓</div>
+        <div class="p2s-solve">
+          <div class="p2s-ico">🔥</div>
+          <b style="color:var(--rose)">熱門題材搜尋</b>
+        </div>
       </div>
-      <div class="cap-pill fragment">
-        <div class="cap-emoji">✂</div>
-        <h4 style="color:var(--violet)">編輯</h4>
-        <p>影片剪接<br>後製成片</p>
+      <div class="p2s-item fragment">
+        <div class="p2s-pain">不懂 Prompt</div>
+        <div class="p2s-arrow">↓</div>
+        <div class="p2s-solve">
+          <div class="p2s-ico">✍️</div>
+          <b style="color:var(--amber)">AI 看完 Skill<br>幫忙擴寫</b>
+        </div>
       </div>
-      <div class="cap-pill fragment">
-        <div class="cap-emoji">📊</div>
-        <h4 style="color:var(--sky)">分析</h4>
-        <p>數據報告<br>辨識高表現內容</p>
+      <div class="p2s-item fragment">
+        <div class="p2s-pain">跨平台</div>
+        <div class="p2s-arrow">↓</div>
+        <div class="p2s-solve">
+          <div class="p2s-ico">✂️</div>
+          <b style="color:var(--violet)">原地剪輯<br>直接生效</b>
+        </div>
       </div>
-      <div class="cap-pill fragment">
-        <div class="cap-emoji">💡</div>
-        <h4 style="color:var(--emerald)">發想</h4>
-        <p>文案 + Hashtag<br>根據 Persona 生成</p>
-      </div>
-      <div class="cap-pill fragment">
-        <div class="cap-emoji">🔍</div>
-        <h4 style="color:var(--rose)">搜尋</h4>
-        <p>熱門題材<br>適合的素材</p>
+      <div class="p2s-item fragment">
+        <div class="p2s-pain">發貼文</div>
+        <div class="p2s-arrow">↓</div>
+        <div class="p2s-solve">
+          <div class="p2s-ico">💬</div>
+          <b style="color:var(--emerald)">AI 看完人設和素材<br>幫忙生</b>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ═══════ P14: 不用害怕做錯 ═══════ -->
-  <div class="slide xl" data-slide="14">
+  <!-- ═══════ P17: 不用害怕做錯 ═══════ -->
+  <div class="slide xl z125" data-slide="16">
     <div class="text-center">
       <div class="tag amber">Iterate</div>
       <h2>不用害怕做錯<br>先做個 Demo 看看</h2>
     </div>
 
-    <div class="redo-grid">
-      <div class="redo-item fragment">
+    <!-- fragment 掛在容器上 ＝ 三欄一起淡入 -->
+    <div class="redo-grid fragment">
+      <div class="redo-item">
         <div class="redo-num" style="color:var(--sky)">3 代</div>
         <div class="redo-label">IG Dashboard 演進</div>
         <div class="redo-sub">做了才知道哪些數據<br>真正值得追蹤</div>
       </div>
-      <div class="redo-item fragment">
+      <div class="redo-item">
         <div class="redo-num" style="color:var(--amber)">3 次</div>
         <div class="redo-label">Tag 系統重構</div>
         <div class="redo-sub">文字猜不準 → Vision 逐張看<br>→ 多套系統統一整合</div>
       </div>
-      <div class="redo-item fragment">
+      <div class="redo-item">
         <div class="redo-num" style="color:var(--violet)">5+</div>
         <div class="redo-label">Pipeline 持續優化</div>
-        <div class="redo-sub">功能多了開始變慢<br>效能瓶頸一個個浮出來解</div>
+        <div class="redo-sub">開始變慢、效能瓶頸</div>
       </div>
     </div>
   </div>
 
-  <!-- ═══════ P15: 累積統計 ═══════ -->
-  <div class="slide xl" data-slide="15">
-    <div class="text-center">
-      <div class="tag emerald">Stats</div>
-      <h2>三個月累積下來</h2>
-    </div>
-
-    <div class="stat-row">
-      <div class="stat-item fragment">
-        <div class="stat-num" style="color:var(--emerald)">120+</div>
-        <div class="stat-label">功能迭代記錄</div>
-      </div>
-      <div class="stat-item fragment">
-        <div class="stat-num" style="color:var(--sky)">4</div>
-        <div class="stat-label">大模組</div>
-        <div class="redo-sub" style="margin-top:.3rem">分析 · 生成<br>資產管理 · 發布發想</div>
-      </div>
-      <div class="stat-item fragment">
-        <div class="stat-num" style="color:var(--amber)">20+</div>
-        <div class="stat-label">AI 指令管理</div>
-        <div class="redo-sub" style="margin-top:.3rem">從 13 個 service 抽出<br>統一 JSON 管理</div>
-      </div>
-    </div>
-
-    <div class="stat-row mt-3">
-      <div class="stat-item fragment">
-        <div class="stat-num" style="color:var(--violet)">13 國</div>
-        <div class="stat-label">Trend Scout 搜尋範圍</div>
-        <div class="redo-sub" style="margin-top:.3rem">本地語言搜尋趨勢舞蹈</div>
-      </div>
-      <div class="stat-item fragment">
-        <div class="stat-num" style="color:var(--rose)">內建</div>
-        <div class="stat-label">影片編輯器</div>
-        <div class="redo-sub" style="margin-top:.3rem">FFmpeg 剪輯 / 調速 / 濾鏡</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══════ P16: Closing (dark accent) ═══════ -->
-  <div class="slide accent xl" data-slide="16">
+  <!-- ═══════ P18: Closing (dark accent) ═══════ -->
+  <div class="slide accent xl z125" data-slide="17">
     <div class="bg-glow" style="width:600px;height:600px;background:var(--amber);top:50%;left:50%;transform:translate(-50%,-50%);opacity:.12"></div>
     <div class="text-center">
-      <div class="closing-quote fragment" style="margin-bottom:2rem">
-        不需要完美的計畫。
+      <div class="closing-quote fragment" style="margin-bottom:2.8rem;font-size:3.1rem;max-width:1160px">
+        沒有完美的計劃，從錯誤中學習
       </div>
-      <div class="closing-quote fragment" style="margin-bottom:2rem">
-        先做一個 Demo，從錯誤中學。
-      </div>
-      <div class="closing-quote fragment" style="margin-bottom:0">
-        <em style="background:linear-gradient(135deg,var(--amber),var(--rose));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-size:1.8rem">最大的風險，是沒有開始。</em>
+      <div class="closing-quote fragment" style="margin-bottom:0;max-width:1160px">
+        <em style="background:linear-gradient(135deg,var(--amber),var(--rose));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-size:4.1rem">最大的風險，是沒有開始</em>
       </div>
     </div>
   </div>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       PART 2 — 反轉段。P1–P16 只加了 xl（放大級距），內容未改。
+       PART 2 — 反轉段。P1–P18 只加了 xl（放大級距），內容未改。
        素材佔位一律是 .slot，換成真檔時把整個 .slot 換成它上方註解那一行。
        ═══════════════════════════════════════════════════════════════ -->
 
-  <!-- ═══════ P17: The Turn ═══════ -->
-  <div class="slide accent xl" data-slide="17">
+  <!-- ═══════ P19: The Turn ═══════ -->
+  <div class="slide accent xl z125" data-slide="18">
     <div class="bg-glow" style="width:620px;height:620px;background:var(--rose);top:50%;left:50%;transform:translate(-50%,-50%);opacity:.14"></div>
     <div class="text-center">
       <div class="section-quote">但這是<span style="color:var(--amber)">四月</span>的事</div>
-      <div class="section-sub fragment" style="margin-top:2.2rem">
-        那場分享講完之後，這個專案又長了
+      <div class="section-sub fragment" style="margin-top:2.4rem;font-size:2.3rem;max-width:1160px">
+        這個專案又長了
         <span style="color:var(--emerald);font-weight:900">1,378</span> 顆 commit
       </div>
-      <div class="section-sub fragment" style="margin-top:1.2rem">
+      <div class="section-sub fragment" style="margin-top:1.4rem;font-size:2.3rem;max-width:1160px">
         它現在叫
-        <span style="color:var(--white);font-weight:900;font-size:2.4rem;letter-spacing:.01em">Rana.AI</span>
+        <span style="color:var(--emerald);font-weight:900;font-size:3.6rem;letter-spacing:.01em">Rana.AI</span>
       </div>
     </div>
   </div>
 
-  <!-- ═══════ P18: Now ═══════ -->
-  <div class="slide xl" data-slide="18">
+  <!-- ═══════ P20: Now ═══════ -->
+  <div class="slide xl z125" data-slide="19">
     <div class="text-center">
       <div class="now-title">Now</div>
     </div>
@@ -1103,8 +1254,8 @@
     </div>
   </div>
 
-  <!-- ═══════ P19: 四大支柱 ═══════ -->
-  <div class="slide accent xl" data-slide="19">
+  <!-- ═══════ P21: 四大支柱 ═══════ -->
+  <div class="slide accent xl" data-slide="20">
     <div class="bg-glow" style="width:560px;height:560px;background:var(--emerald);top:-160px;right:-90px;opacity:.15"></div>
     <div class="text-center">
       <div class="section-quote">四件事<br>把工具變成團隊</div>
@@ -1113,32 +1264,32 @@
     <div class="pillar-row">
       <div class="pillar fragment" style="border-color:rgba(217,119,6,.3)">
         <div class="pillar-num" style="color:var(--amber)">01</div>
-        <h4>製作能力</h4>
+        <h4>工作組</h4>
         <p>圖像、影片、聲音<br>三軌並行</p>
       </div>
       <div class="pillar fragment" style="border-color:rgba(2,132,199,.3)">
         <div class="pillar-num" style="color:var(--sky)">02</div>
-        <h4>靈感庫</h4>
+        <h4>發想組</h4>
         <p>每天自己去外面<br>找素材回來</p>
       </div>
       <div class="pillar fragment" style="border-color:rgba(124,58,237,.3)">
         <div class="pillar-num" style="color:var(--violet)">03</div>
-        <h4>AI 人格</h4>
+        <h4>網紅組</h4>
         <p>有記憶、有情緒<br>有自己想講的話</p>
       </div>
       <div class="pillar fragment" style="border-color:rgba(225,29,72,.3)">
         <div class="pillar-num" style="color:var(--rose)">04</div>
-        <h4>導演 AI</h4>
+        <h4>導演組</h4>
         <p>聽你講一句話<br>它把片子做出來</p>
       </div>
     </div>
   </div>
 
-  <!-- ═══════ P20: 多媒體工作站 ═══════ -->
-  <div class="slide xl" data-slide="20">
+  <!-- ═══════ P22: 多媒體工作站 ═══════ -->
+  <div class="slide xl zfit" data-slide="21" style="--cz:1.09">
     <div class="text-center">
-      <div class="tag amber">01 &ensp;製作能力</div>
-      <h2>製作方向不再只有一條線</h2>
+      <div class="tag amber">01 &ensp;工作組</div>
+      <h2>全方位影音生成工具</h2>
     </div>
 
     <div class="tree" style="margin-top:1.2rem">
@@ -1186,35 +1337,36 @@
     </div>
   </div>
 
-  <!-- ═══════ P21: Demo — 語音生影 ═══════ -->
-  <div class="slide demo" data-slide="21">
+  <!-- ═══════ P23: Demo — 語音生影 ═══════ -->
+  <div class="slide demo" data-slide="22">
     <div class="demo-header">
+      <div class="tag amber">01 &ensp;工作組</div>
       <div class="demo-title">語音生影</div>
-      <p class="subtitle">一張照片 ＋ 一段聲音 → 會講話的角色</p>
     </div>
     <div class="img-carousel">
-      <img class="carousel-img" src="assets/p21_圖片.png" alt="來源照片">
+      <img class="carousel-img" src="assets/p21_圖片.jpg" alt="來源照片">
       <video class="carousel-img fragment" src="assets/p21_越南語_Infinite Talk_18s.mp4" controls playsinline preload="metadata"></video>
       <div class="img-counter"><span class="img-idx">1</span> / 2</div>
     </div>
   </div>
 
-  <!-- ═══════ P22: Demo — Vlog ＋ 自製配樂 ═══════ -->
-  <div class="slide demo" data-slide="22">
+  <!-- ═══════ P24: Demo — Vlog ＋ 自製配樂 ═══════ -->
+  <div class="slide demo" data-slide="23">
     <div class="demo-header">
+      <div class="tag amber">01 &ensp;工作組</div>
       <div class="demo-title">Vlog ＋ 自製配樂</div>
-      <p class="subtitle">影片、人聲、背景音樂，全部是這台機器產的</p>
     </div>
     <div class="img-carousel">
       <video class="carousel-img" src="assets/p22_Dancing San_No2_v2.mp4" controls playsinline preload="metadata"></video>
     </div>
   </div>
 
-  <!-- ═══════ P23: Demo — 靈感庫（4 組素材） ═══════ -->
-  <div class="slide demo" data-slide="23">
+  <!-- ═══════ P25: Demo — 發想組（4 組素材） ═══════
+       這頁起換到 02 發想組：標頭顏色改用 sky，跟 P21 四支柱裡「發想組」那一柱同色。 -->
+  <div class="slide demo" data-slide="24">
     <div class="demo-header">
-      <div class="demo-title">靈感庫</div>
-      <p class="subtitle">每天自動爬 · 選一張 · 直接變成任務</p>
+      <div class="tag sky">02 &ensp;發想組</div>
+      <div class="demo-title">每天自動幫你找題材</div>
     </div>
     <div class="img-carousel">
       <img class="carousel-img" src="assets/p23_靈感庫1.png" alt="靈感庫介面">
@@ -1225,25 +1377,25 @@
     </div>
   </div>
 
-  <!-- ═══════ P24: AI 人格 section ═══════ -->
-  <div class="slide accent xl" data-slide="24">
+  <!-- ═══════ P26: 網紅組 section ═══════ -->
+  <div class="slide accent xl z125" data-slide="25">
     <div class="bg-glow" style="width:660px;height:660px;background:var(--violet);top:50%;left:50%;transform:translate(-50%,-50%);opacity:.18"></div>
     <div class="text-center">
       <div class="section-quote" style="font-size:5.2rem;line-height:1.25">
-        想題材很累？<br>
+        想題材很累<span class="optical-q">？</span><br>
         <span style="background:linear-gradient(135deg,var(--violet),var(--rose));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">她自己想</span>
       </div>
-      <div class="section-sub fragment" style="margin-top:2.4rem">
+      <div class="section-sub fragment" style="margin-top:2.6rem;font-size:2.3rem;max-width:1160px">
         她有自己的記憶、情緒，跟想講的話
       </div>
     </div>
   </div>
 
-  <!-- ═══════ P25: 人格構成（知識圖譜，三個節點可點開） ═══════ -->
-  <div class="slide xl" data-slide="25">
+  <!-- ═══════ P27: 人格構成（知識圖譜，三個節點可點開） ═══════ -->
+  <div class="slide xl zfit" data-slide="26" style="--cz:1.25">
     <div class="text-center">
-      <div class="tag violet">03 &ensp;AI 人格</div>
-      <h2 style="font-size:3rem">人格不是一段 Prompt</h2>
+      <div class="tag violet">03 &ensp;網紅組</div>
+      <h2>人格不只是一段 Prompt</h2>
     </div>
 
     <div class="kg">
@@ -1309,17 +1461,24 @@
     </div>
   </div>
 
-  <!-- ═══════ P26: Demo — 她會做什麼（4 組圖，最後才出表情包） ═══════ -->
-  <div class="slide demo" data-slide="26">
+  <!-- ═══════ P28: Demo — 她會做什麼（4 組圖，最後才出表情包） ═══════ -->
+  <div class="slide demo" data-slide="27">
     <div class="demo-header">
+      <div class="tag violet">03 &ensp;網紅組</div>
       <div class="demo-title">她會做什麼</div>
       <p class="subtitle">聊天 · 看照片 · 提案 · 寫日記</p>
     </div>
     <div class="demo-stage">
+      <!-- QR 欄「不掛」.fragment：要跟表情包同一步出現（掛了會多吃一次按鍵，
+           而且它 DOM 在前、會比表情包先亮）。顯示時機由 CSS 盯 .sticker-rail.visible 同步。 -->
+      <div class="qr-rail">
+        <img src="assets/Line貼圖QR code.png" alt="LINE 貼圖 QR code">
+        <b>LINE 貼圖</b>
+      </div>
     <div class="img-carousel">
       <img class="carousel-img" src="assets/p26_聊天_Web.png" alt="網頁聊天">
       <img class="carousel-img fragment" src="assets/p26_聊天_Telegram.png" alt="Telegram 聊天">
-      <img class="carousel-img fragment" src="assets/p26_提案_1.png" alt="她自己提案">
+      <img class="carousel-img fragment fit-h" src="assets/p26_提案_1.png" alt="她自己提案">
       <img class="carousel-img fragment" src="assets/p26_日記_1.png" alt="日記 1">
       <img class="carousel-img fragment" src="assets/p26_日記_2.png" alt="日記 2">
       <div class="img-counter"><span class="img-idx">1</span> / 5</div>
@@ -1335,8 +1494,8 @@
     </div>
   </div>
 
-  <!-- ═══════ P27: 導演 AI section ═══════ -->
-  <div class="slide accent xl" data-slide="27">
+  <!-- ═══════ P29: 導演組 section ═══════ -->
+  <div class="slide accent xl z125" data-slide="28">
     <div class="bg-glow" style="width:680px;height:680px;background:var(--amber);top:50%;left:50%;transform:translate(-50%,-50%);opacity:.16"></div>
     <div class="text-center">
       <div class="section-sub" style="margin-bottom:1.6rem;color:rgba(255,255,255,.5)">一個人，做不完</div>
@@ -1349,10 +1508,10 @@
     </div>
   </div>
 
-  <!-- ═══════ P29: 新舊流程對比 ═══════ -->
-  <div class="slide xl" data-slide="28">
+  <!-- ═══════ P30: 新舊流程對比 ═══════ -->
+  <div class="slide xl zfit" data-slide="29" style="--cz:1.25">
     <div class="text-center">
-      <div class="tag rose">04 &ensp;導演 AI</div>
+      <div class="tag rose">04 &ensp;導演組</div>
       <h2>用自然語言驅動</h2>
     </div>
 
@@ -1377,9 +1536,10 @@
       </div>
 
       <!-- 新流程：4 步，補素材就地完成，中間兩步 AI 自己包 -->
-      <div class="flow-row flow-new fragment" style="margin-top:1.6rem">
+      <!-- 兩列之間夾著「⟲ 缺素材 → 退回前面整段重來」那條說明，1.6rem 時整段擠成一團 -->
+      <div class="flow-row flow-new fragment" style="margin-top:3.2rem">
         <div class="flow-tag">現在的流程</div>
-        <div class="flow-step">與導演 AI<br>溝通需求</div>
+        <div class="flow-step">與導演組<br>溝通需求</div>
         <div class="flow-arrow">→</div>
         <div class="flow-step">產出素材</div>
         <div class="flow-arrow">→</div>
@@ -1393,9 +1553,10 @@
     </div>
   </div>
 
-  <!-- ═══════ P30: Demo — 導演台 ═══════ -->
-  <div class="slide demo" data-slide="29">
+  <!-- ═══════ P31: Demo — 導演台 ═══════ -->
+  <div class="slide demo" data-slide="30">
     <div class="demo-header">
+      <div class="tag rose">04 &ensp;導演組</div>
       <div class="demo-title">導演台</div>
       <p class="subtitle">跟它講需求 · 它排分鏡 · 素材直接產出來</p>
     </div>
@@ -1407,20 +1568,19 @@
     </div>
   </div>
 
-  <!-- ═══════ P31: 規則庫知識圖譜（節點由 SKILL_GROUPS 陣列產生，改陣列就會變） ═══════ -->
-  <div class="slide xl" data-slide="30">
+  <!-- ═══════ P32: 規則庫知識圖譜（節點由 SKILL_GROUPS 陣列產生，改陣列就會變） ═══════ -->
+  <div class="slide xl zfit tightpad" data-slide="31" style="--cz:1.25">
     <div class="text-center">
       <div class="tag emerald">Knowledge Base</div>
-      <h2 style="font-size:3rem">這半年真正累積下來的</h2>
-      <p class="lead" style="font-size:1.2rem;margin-bottom:.2rem">
-        不是功能，是<b style="color:var(--emerald)">規則</b> —— 每一份都是踩過才寫下來的
-      </p>
+      <h2>
+        痛點<span style="color:var(--text4);font-weight:400">&ensp;→&ensp;</span>解決方案<span style="color:var(--text4);font-weight:400">&ensp;→&ensp;</span><span style="color:var(--emerald)">Skill</span>
+      </h2>
     </div>
     <div class="sg" id="skillGraph"></div>
   </div>
 
-  <!-- ═══════ P32: 內部啟用 ＋ 致謝 ═══════ -->
-  <div class="slide accent xl launch" data-slide="31">
+  <!-- ═══════ P33: 內部啟用 ＋ 致謝 ═══════ -->
+  <div class="slide accent xl launch" data-slide="32">
     <div class="bg-glow" style="width:700px;height:700px;background:var(--emerald);top:50%;left:50%;transform:translate(-50%,-50%);opacity:.16"></div>
     <div class="text-center">
       <div class="section-quote" style="font-size:2.9rem;line-height:1.3;max-width:1200px">
@@ -1438,27 +1598,143 @@
     </p>
   </div>
 
-  <!-- ═══════ P33: 開發藍圖（三層：功能區塊 → 交互 → 剛需；資料在 JS 的 BLOCKS/COMBOS/NEEDS） ═══════ -->
-  <div class="slide xl" data-slide="32">
+  <!-- ═══════ P34: 開發藍圖（三層：功能區塊 → 交互 → 剛需；資料在 JS 的 BLOCKS/COMBOS/NEEDS） ═══════ -->
+  <div class="slide xl zfit" data-slide="33" style="--cz:1.25">
     <div class="text-center">
       <div class="tag violet">Roadmap</div>
     </div>
     <div class="rm" id="roadmap"></div>
   </div>
 
-  <!-- ═══════ P33: Q&A ═══════ -->
-  <div class="slide accent" data-slide="33">
+  <!-- ═══════ P35: 玩星派對 — 比賽影片（assets/玩星派對.mp4） ═══════ -->
+  <div class="slide demo" data-slide="34">
+    <div class="demo-header">
+      <div class="demo-title">今年 1 月時，我報了一場比賽⋯</div>
+    </div>
+    <div class="img-carousel">
+      <video class="carousel-img" src="assets/玩星派對.mp4" controls playsinline preload="metadata"></video>
+    </div>
+  </div>
+
+  <!-- ═══════ P36: 結語 ═══════ -->
+  <div class="slide accent xl voyage" data-slide="35">
+    <!-- 暖光壓在海平線後面 ＝ 日出／日落，船剛好逆著它 -->
+    <div class="bg-glow" style="width:940px;height:940px;background:var(--amber);top:74%;left:50%;transform:translate(-50%,-50%);opacity:.20"></div>
+
+    <!-- 海盜船剪影：全部靠 path 畫，沒有外部圖檔。
+         座標系 1200×620，吃水線 y≈472、甲板 y≈400；要調大小改 CSS 的 .pirate{width}。 -->
+    <svg class="pirate" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+      <!-- 海平線刻意畫到 viewBox 之外（x −700 ~ 1700），靠 .pirate{overflow:visible} 露出來。
+           ⚠ 不這樣做的話：meet 會把 1000 寬的內容縮到只佔畫面一半，海平線跟著只有一半寬，
+             看起來就像船停在一塊色板上，而不是浮在海上。 -->
+      <g class="sea">
+        <path d="M-700 612 C -400 604 -140 619 120 612 C 380 605 560 620 800 612 C 1040 604 1320 619 1700 610"/>
+        <path d="M-700 646 C -380 638 -100 652 180 644 C 460 636 660 651 900 643 C 1140 635 1380 648 1700 641"/>
+        <path d="M-700 680 C -340 672 -60 685 260 678 C 580 671 760 684 1000 677 C 1240 670 1440 681 1700 675"/>
+      </g>
+
+      <!-- 索具先畫 ⇒ 後面的帆蓋上去時，只剩帆與帆之間的縫隙看得到線 -->
+      <g class="rig">
+        <path d="M686 128 L890 468"/>
+        <path d="M500 58 L182 498"/>
+        <path d="M314 210 L186 486"/>
+        <path d="M500 62 L430 540 M500 62 L570 540"/>
+        <path d="M686 128 L632 540 M686 128 L740 540"/>
+        <path d="M314 210 L266 540 M314 210 L362 540"/>
+      </g>
+
+      <g class="hull">
+        <!-- 船身 ＋ 艉樓 ＋ 首斜桅 -->
+        <path d="M176 540 L764 540 C 756 578 716 612 640 612 L300 612 C 232 612 190 578 176 540 Z"/>
+        <path d="M176 542 L180 494 L254 490 L258 542 Z"/>
+        <path d="M752 534 L902 464 L908 478 L758 548 Z"/>
+
+        <!-- 三根桅杆。主桅刻意再往上多留一截，旗子才會落在標題上緣之上 -->
+        <rect x="309" y="206" width="10" height="336"/>
+        <rect x="495" y="54"  width="10" height="488"/>
+        <rect x="681" y="124" width="10" height="418"/>
+
+        <!-- 帆桁（比帆頂再寬一點，看得出來帆是掛在桁上的） -->
+        <rect x="242" y="327" width="144" height="7" rx="3.5"/>
+        <rect x="428" y="327" width="144" height="7" rx="3.5"/>
+        <rect x="614" y="327" width="144" height="7" rx="3.5"/>
+        <rect x="254" y="219" width="120" height="6" rx="3"/>
+        <rect x="440" y="219" width="120" height="6" rx="3"/>
+        <rect x="626" y="219" width="120" height="6" rx="3"/>
+        <rect x="454" y="137" width="92"  height="6" rx="3"/>
+        <rect x="640" y="137" width="92"  height="6" rx="3"/>
+        <rect x="468" y="83"  width="64"  height="5" rx="2.5"/>
+
+        <!-- 帆：加一圈背景色描邊把彼此切開。
+             ⚠ 整艘船共用一個 group opacity ⇒ 重疊的帆會攤平成同一塊平面，
+               沒有這圈描邊，三根桅的帆會糊成一坨看不出是船（實測過）。 -->
+        <g class="sails">
+          <path d="M246 330 L382 330 C400 392 408 437 390 478 Q314 490 238 478 C247 437 255 392 246 330 Z"/>
+          <path d="M432 330 L568 330 C586 392 594 437 576 478 Q500 490 424 478 C433 437 441 392 432 330 Z"/>
+          <path d="M618 330 L754 330 C772 392 780 437 762 478 Q686 490 610 478 C619 437 627 392 618 330 Z"/>
+          <path d="M258 222 L370 222 C385 261 393 288 378 314 Q314 323 250 314 C257 288 265 261 258 222 Z"/>
+          <path d="M444 222 L556 222 C571 261 579 288 564 314 Q500 323 436 314 C443 288 451 261 444 222 Z"/>
+          <path d="M630 222 L742 222 C757 261 765 288 750 314 Q686 323 622 314 C629 288 637 261 630 222 Z"/>
+          <path d="M458 140 L542 140 C553 168 561 187 550 206 Q500 213 450 206 C455 187 463 168 458 140 Z"/>
+          <path d="M644 140 L728 140 C739 168 747 187 736 206 Q686 213 636 206 C641 187 649 168 644 140 Z"/>
+          <path d="M472 86 L528 86 C536 103 542 115 534 126 Q500 131 466 126 C470 115 476 103 472 86 Z"/>
+          <!-- 船首三角帆 -->
+          <path d="M862 466 C818 400 760 282 694 156 L692 452 C750 462 812 466 862 466 Z"/>
+          <!-- 艉部縱帆 -->
+          <path d="M308 296 C268 318 226 344 192 366 L196 476 L306 476 Z"/>
+        </g>
+      </g>
+
+      <!-- 骷髏旗：evenodd ⇒ 眼窩與牙縫是「挖空」，不是另外疊深色塊
+           （在半透明的旗子上疊色塊會變成比旗子更亮的補丁，反而更糊） -->
+      <g class="flag">
+        <path fill-rule="evenodd" d="M504 50 L610 64 L592 82 L610 100 L504 108 Z
+          M527 72 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 Z
+          M551 72 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 Z
+          M538 88 h5 v9 h-5 Z  M546 88 h5 v9 h-5 Z  M554 88 h5 v9 h-5 Z"/>
+      </g>
+    </svg>
+
+    <div class="text-center voyage-copy">
+      <div class="section-quote" style="font-size:4.5rem;line-height:1.34;max-width:1320px">
+        AI 讓每個人都吃了<span style="background:linear-gradient(135deg,var(--violet),var(--rose));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">惡魔果實</span>
+      </div>
+      <div class="section-quote fragment" style="font-size:4.5rem;line-height:1.34;max-width:1320px;margin-top:1.8rem">
+        那你要出發找 <span style="background:linear-gradient(135deg,var(--emerald),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">One&nbsp;Piece</span> 了嗎
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ P37: Q&A ═══════ -->
+  <div class="slide accent z125" data-slide="36">
     <div class="text-center">
       <p style="font-size:3rem;font-weight:900;color:rgba(255,255,255,.5);letter-spacing:.1em">Q &amp; A</p>
       <p class="section-sub" style="margin-top:1.5rem;color:rgba(255,255,255,.3);font-family:var(--mono);font-size:.85rem">
         Rana.AI
       </p>
+      <img class="qa-qr" src="assets/Slides-Cover-assets/16_Frog Lee_Questionnaire.png" alt="滿意度問卷 QR code">
     </div>
   </div>
 
 </div>
 
-<!-- ═══════ P25 節點彈窗（數字全部取自 persona-yrina.db 實查） ═══════ -->
+<!-- ═══════ P11 / P14 的截圖彈窗 ═══════
+     由該頁結尾一個 display:none 的 .fragment.modal-cue 觸發（按 → 切到它就開窗）。 -->
+<div class="modal-mask" id="modal-insight">
+  <div class="modal-close">ESC 或點外面關閉</div>
+  <div class="modal-box shot">
+    <img src="assets/p10_細部數據截圖.png" alt="細部數據">
+  </div>
+</div>
+
+<div class="modal-mask" id="modal-asset">
+  <div class="modal-close">ESC 或點外面關閉</div>
+  <div class="modal-box shot">
+    <img src="assets/素材庫_3.png" alt="素材庫 細部">
+  </div>
+</div>
+
+<!-- ═══════ P27 節點彈窗（數字全部取自 persona-yrina.db 實查） ═══════ -->
 <div class="modal-mask" id="modal-affect">
   <div class="modal-close">ESC 或點外面關閉</div>
   <div class="modal-box">
@@ -1534,7 +1810,7 @@
 
 <!-- UI -->
 <div id="progress" class="progress"></div>
-<div class="slide-counter"><span id="currentSlide">1</span> / <span id="totalSlides">17</span></div>
+<div class="slide-counter"><span id="currentSlide">1</span> / <span id="totalSlides">37</span></div>
 <div class="nav-hint"><kbd>←</kbd> <kbd>→</kbd> or <kbd>Space</kbd> &ensp;·&ensp; <kbd>F</kbd> Fullscreen &ensp;·&ensp; <kbd>ESC</kbd> Overview</div>
 
 <script>
@@ -1546,6 +1822,8 @@
 
   function go(n){
     if(n<0||n>=tot)return;
+    // 自動彈出的截圖窗不跨頁殘留（手動點開的 P27 人格窗本來就會被自己的關閉鍵處理）
+    document.querySelectorAll('.modal-mask.auto-open').forEach(m=>m.classList.remove('open','auto-open'));
     slides.forEach((s,i)=>{s.classList.remove('active','prev');if(i<n)s.classList.add('prev');if(i!==n)s.querySelectorAll('.fragment').forEach(f=>f.classList.remove('visible'))});
     idx=n;fi=-1;slides[idx].classList.add('active');ui();
   }
@@ -1561,16 +1839,30 @@
     counter.textContent=Math.min(visCount,imgs.length);
   }
 
+  /* 帶 data-modal 的 .fragment ＝「切到它就自動開彈窗」的隱形提示點（P11 / P14）。
+     這樣簡報時不用把手移到滑鼠去點按鈕，照原本節奏按 → 截圖就跳出來。
+     標記 .auto-open 是為了跟 P27 手動點開的人格彈窗區分 —— 兩者的關閉行為不同。 */
+  function fireCue(el){
+    if(!el||!el.dataset||!el.dataset.modal)return;
+    const m=document.getElementById(el.dataset.modal);
+    if(m)m.classList.add('open','auto-open');
+  }
+
   function adv(){
     const f=slides[idx].querySelectorAll('.fragment');
-    if(fi<f.length-1){fi++;f[fi].classList.add('visible');updateCarouselCounter()}
+    if(fi<f.length-1){fi++;f[fi].classList.add('visible');updateCarouselCounter();fireCue(f[fi])}
     else if(idx<tot-1)go(idx+1);
   }
 
   function ret(){
     const f=slides[idx].querySelectorAll('.fragment');
     if(fi>=0){f[fi].classList.remove('visible');fi--;updateCarouselCounter()}
-    else if(idx>0){go(idx-1);const pf=slides[idx].querySelectorAll('.fragment');pf.forEach(f=>f.classList.add('visible'));fi=pf.length-1;updateCarouselCounter()}
+    else if(idx>0){go(idx-1);const pf=slides[idx].querySelectorAll('.fragment');pf.forEach(f=>f.classList.add('visible'));fi=pf.length-1;
+      /* 退回上一頁時這裡會把該頁 fragment 全部設成已顯示。若該頁結尾是彈窗提示點，
+         它就等於「已經觸發過」⇒ 之後按 → 只會翻頁，彈窗再也叫不出來。
+         把結尾的 cue 退回未觸發狀態，講者按錯一下也救得回來。 */
+      while(fi>=0&&pf[fi].classList.contains('modal-cue')){pf[fi].classList.remove('visible');fi--}
+      updateCarouselCounter()}
   }
 
   /* ── Overview Mode ── */
@@ -1612,7 +1904,10 @@
       label.innerHTML='<span>P'+(i+1)+'</span><span>'+slideTitles[i]+'</span>';
       thumb.appendChild(label);
       thumb.addEventListener('click',()=>{
-        go(i);
+        /* 點「當前頁」縮圖只關總覽，不走 go() —— go(idx) 會把 fi 重設成 -1
+           但保留已顯示的 fragment，之後每按一次 → 只是把已顯示的再標一次，
+           要空按 N 下（N＝已顯示的 fragment 數）才會翻頁，台上看起來像簡報卡死。 */
+        if(i!==idx)go(i);
         closeOverview();
       });
       overviewGrid.appendChild(thumb);
@@ -1668,8 +1963,10 @@
   /* ══════════════ Part 2 ══════════════ */
   const CSS=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 
-  /* ── P25 節點彈窗 ── */
-  document.querySelectorAll('.kg-main.clickable').forEach(n=>{
+  /* ── 彈窗觸發器（P27 圖譜節點 ＋ P11/P14 的截圖按鈕） ──
+     ⚠ 選 [data-modal] 而不是 .kg-main.clickable —— 之後任何元素只要掛
+        data-modal="彈窗的 id" 就會自動綁上，不必再回來改這段。 */
+  document.querySelectorAll('[data-modal]').forEach(n=>{
     n.addEventListener('click',e=>{
       e.stopPropagation();                       // 不要觸發翻頁
       document.getElementById(n.dataset.modal).classList.add('open');
@@ -1681,8 +1978,17 @@
   // capture 階段攔截 —— deck 的 ESC 是開總覽，彈窗開著時要先關彈窗
   document.addEventListener('keydown',e=>{
     const open=document.querySelector('.modal-mask.open');
-    if(open&&e.key==='Escape'){e.stopPropagation();e.preventDefault();open.classList.remove('open')}
-    else if(open){e.stopPropagation()}
+    if(!open)return;
+    if(e.key==='Escape'){e.stopPropagation();e.preventDefault();open.classList.remove('open','auto-open');return}
+    /* 自動彈出的截圖窗（P11 / P14）：方向鍵直接關掉並照常翻頁，不必先按一次 ESC。
+       ⚠ 只對 .auto-open 生效 —— P27 的人格彈窗要停在原地讓人讀，
+         若也被方向鍵關掉，講者按錯一下資料就消失，看起來像簡報壞了。 */
+    if(open.classList.contains('auto-open')&&
+       ['ArrowRight',' ','ArrowDown','PageDown','ArrowLeft','ArrowUp','PageUp'].includes(e.key)){
+      open.classList.remove('open','auto-open');
+      return;                        // 故意不擋，讓下面的主 handler 照常翻頁
+    }
+    e.stopPropagation();
   },true);
 
   /* ── 情感五維長條（−10 ～ +10，中線為 0） ── */
@@ -1739,13 +2045,17 @@
   /* ── P30 流程括號：依實際步驟位置定位 ── */
   function layoutFlow(){
     const blk=document.querySelector('.flow-block'); if(!blk)return;
+    /* ⚠ getBoundingClientRect 回傳的是「套完 zoom 之後」的像素，而寫進 --l/--w/--c 的值
+       是 CSS px、還會再被同一個 zoom 乘一次 ⇒ 括號會整條往右偏（實測 zoom 1.25 時偏 151px，
+       畫面上看起來就是括號沒對到步驟）。先把 zoom 除掉再寫回去。 */
+    let z=1,n=blk; while(n&&n!==document.body){z*=parseFloat(getComputedStyle(n).zoom)||1;n=n.parentElement;}
     const span=(rowSel,bracketSel,from,to)=>{
       const row=blk.querySelector(rowSel),br=blk.querySelector(bracketSel); if(!row||!br)return;
       const steps=[...row.querySelectorAll('.flow-step')];
       if(!steps[from]||!steps[to])return;
       const b=blk.getBoundingClientRect();
-      const l=steps[from].getBoundingClientRect().left-b.left;
-      const r=steps[to].getBoundingClientRect().right-b.left;
+      const l=(steps[from].getBoundingClientRect().left-b.left)/z;
+      const r=(steps[to].getBoundingClientRect().right-b.left)/z;
       br.style.setProperty('--l',l+'px');
       br.style.setProperty('--w',(r-l)+'px');
       br.style.setProperty('--c',((l+r)/2)+'px');
@@ -1761,15 +2071,17 @@
      ⚠ 新增 COMBO 前先確認它的兩個來源在環上相鄰，否則連線會橫跨整張圖。
      ⚠ 角度平均一定要用 atan2(Σsin,Σcos)：163° 與 -163° 用算術平均會得到 0°（跑到對面）。 */
   const BLOCKS=[
-    {id:'persona', n:'AI 人格',    c:'#7c3aed'},
-    {id:'director',n:'導演 AI',    c:'#e11d48'},
-    {id:'produce', n:'內容生產',    c:'#0284c7'},
-    {id:'inspire', n:'靈感庫',      c:'#d97706'},
+    {id:'persona', n:'網紅組',      c:'#7c3aed'},
+    {id:'director',n:'導演組',      c:'#e11d48'},
+    /* ⚠ 顏色必須跟 P21 四支柱一致：工作組=amber、發想組=sky、網紅組=violet、導演組=rose。
+       這兩顆之前是對調的（工作組畫成藍、發想組畫成橘），跟前面看起來像不同的東西。 */
+    {id:'produce', n:'工作組',      c:'#d97706'},
+    {id:'inspire', n:'發想組',      c:'#0284c7'},
     {id:'craft',   n:'本地製作經驗', c:'#059669'},
     {id:'data',    n:'數據決策',    c:'#0891b2'},
   ];
-  /* ⚠ 沒價值的不硬接：內容生產 × 靈感庫（「看到什麼就做得出什麼」）已經是上線功能
-     （P24 就在演示點圖直接生成），不屬於「未來的交互」，所以這一格刻意留空。
+  /* ⚠ 沒價值的不硬接：工作組 × 發想組（「看到什麼就做得出什麼」）已經是上線功能
+     （P25 就在演示點圖直接生成），不屬於「未來的交互」，所以這一格刻意留空。
      留空造成的 60° 缺口由外圈的「商案接得住」補位，視覺上不會破。 */
   const COMBOS=[
     {id:'c1',from:['persona','director'],n:'自己開案、自己派工'},
@@ -1842,6 +2154,18 @@
     COMBOS.forEach(c=>c.src.forEach(b=>line(g2,b.p,c.p,b.c,1.8,.34)));
     NEEDS.forEach(n=>n.src.forEach(c=>line(g3,c.p,n.p,c.src[0].c,1.6,.3,true)));
 
+    /* 線段特效：在前兩層的連線上各疊一條會往外跑的亮線 ＝「有東西正在流動」。
+       第三層（剛需）本身已經是虛線，再加流動會糊掉，所以不疊。
+       ⚠ 濃度與 dash 一律由 .rm-flow / .rm-flow2 這兩個 class 決定，
+         不要在這裡設 opacity —— 內聯值優先序高於 class，會把動畫的濃度蓋掉。 */
+    const flow=(g,a,b,c,cls)=>{const l=document.createElementNS(NS,'line');
+      l.setAttribute('x1',a[0]);l.setAttribute('y1',a[1]);
+      l.setAttribute('x2',b[0]);l.setAttribute('y2',b[1]);
+      l.setAttribute('stroke',c);l.setAttribute('class',cls);
+      l.setAttribute('vector-effect','non-scaling-stroke');g.appendChild(l)};
+    BLOCKS.forEach(b=>flow(g1,[CX,CY],b.p,b.c,'rm-flow'));
+    COMBOS.forEach(c=>c.src.forEach(b=>flow(g2,b.p,c.p,b.c,'rm-flow2')));
+
     // 第一層：核心 ＋ 六個功能區塊（進頁就在）
     const l1=layer('rm-l1');
     BLOCKS.forEach(b=>node(l1,'rm-grp',b.p,b.n,`background:${b.c}`));
@@ -1888,7 +2212,10 @@
       l.setAttribute('x1',x1);l.setAttribute('y1',y1);l.setAttribute('x2',x2);l.setAttribute('y2',y2);
       l.setAttribute('stroke',c);l.setAttribute('vector-effect','non-scaling-stroke');
       if(cls){l.setAttribute('class',cls)}else{l.setAttribute('stroke-width',w);l.setAttribute('opacity',o)}
-      svg.appendChild(l)};
+      /* ⚠ 一定要回傳 l —— 下面 leaves.push({el,ln}) 要拿它，少了 return 會存進 undefined，
+         解重疊的 place() 一呼叫 ln.setAttribute 就丟例外、整個 relax() 中斷，
+         葉節點就停在原始半徑上互相重疊（畫面看得出來，但不會有任何錯誤提示）。 */
+      svg.appendChild(l); return l};
     const node=(cls,x,y,html,style)=>{const d=document.createElement('div');
       d.className='sg-n '+cls; d.style.left=(x/W*100)+'%'; d.style.top=(y/H*100)+'%';
       d.style.cssText+=style||''; d.innerHTML=html; host.appendChild(d); return d};
@@ -1953,9 +2280,22 @@
      用 ResizeObserver 盯元素本身，字體、縮放、全螢幕、換頁全部涵蓋。 */
   (()=>{
     const blk=document.querySelector('.flow-block'); if(!blk)return;
-    if(window.ResizeObserver){new ResizeObserver(layoutFlow).observe(blk);}
+    /* ⚠ 光盯 .flow-block 沒有用：它是 width:100%，寬度恆定。webfont 到位時變寬的是
+       裡面的 .flow-step，block 尺寸不動 ⇒ 回呼不會觸發 ⇒ 括號停在 fallback 字寬
+       算出來的位置（實測偏 53px，畫面上就是括號沒對到步驟）。
+       document.fonts.ready 也擋不住 —— 它可能在 @import 的字體真正到位之前就 resolve。
+       所以要直接盯步驟本身。 */
+    if(window.ResizeObserver){
+      const ro=new ResizeObserver(layoutFlow);
+      ro.observe(blk);
+      // 連箭頭與左側標籤一起盯：webfont 換掉「→」的字寬時，步驟會跟著重新分配寬度
+      blk.querySelectorAll('.flow-row>*').forEach(el=>ro.observe(el));
+    }
     window.addEventListener('resize',layoutFlow);
-    if(document.fonts&&document.fonts.ready)document.fonts.ready.then(layoutFlow);
+    /* ⚠ 這裡一定要再包一層 rAF。document.fonts.ready 可能在 @import 的字體真正套用到版面
+       之前就 resolve ⇒ 它會在 ResizeObserver 算對之後，又用舊版面覆寫一次
+       （實測括號偏 −53px，而且步驟寬度前後一模一樣，就是被這一發蓋掉的）。 */
+    if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>requestAnimationFrame(layoutFlow));
     requestAnimationFrame(layoutFlow);
   })();
 
@@ -1968,6 +2308,13 @@
         if(!v.paused){v.pause();v.currentTime=0;}
       });
       _go(n);
+      /* ⚠ 換頁後重算流程括號。括號位置是量「步驟的實際寬度」得來的，而那個寬度會受
+         webfont 到位時機、視窗縮放、甚至「載入當下 active 的是哪一頁」影響 ——
+         實測同一份檔案，載入時 P30 是 active 就對齊，不是 active 就偏 53px。
+         簡報真正會看到的時機就是切到這一頁，在這裡補一次最保險（不在該頁時是 no-op）。
+         同步呼叫即可：.flow-block 的版面不隨 active／prev 改變（那兩個 class 只動
+         opacity 與 translateX，而括號算的是「步驟相對 block」的差值，平移會相消）。 */
+      layoutFlow();
     };
     /* 同一頁內切素材時，只要影片不是「當前顯示的那一張」就停掉。
        ⚠ 不能只判斷「後面有沒有已顯示的素材」—— 按 ← 退回上一張時，影片雖然被隱藏了，
